@@ -5,4 +5,7 @@
 assets/photos/CONVOS YT Buckshot v2.png
 assets/video/convos-teaser-original.mp4
 
+# source clock graphics — rebuilt natively in djmix/, JPEGs kept locally only
+assets/graphics/
+
 .DS_Store

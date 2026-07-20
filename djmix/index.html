@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>rapfabulous DJ Mix — for Mixshow DJs</title>
+<meta name="description" content="The rapfabulous DJ Mix format guide: mixshow clocks, segment timing, and music programming rules for featured Mixshow DJs." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="../assets/brand/favicon.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#CC3300;
+    --purple:#6600CC;
+    --ink:#0A0A0A;
+    --surface:#141414;
+    --surface-2:#1C1C1C;
+    --paper:#F4EFE7;
+  }
+  *{ -webkit-tap-highlight-color: transparent; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.7;
+  }
+  .font-display{
+    font-family:'Archivo Black','Inter',sans-serif;
+    letter-spacing:-0.03em;
+    line-height:0.92;
+  }
+  .mono{ font-family:'JetBrains Mono',ui-monospace,monospace; font-feature-settings:"tnum"; }
+  .grad-text{
+    background:linear-gradient(100deg,var(--red) 0%,#9B1F5C 50%,var(--purple) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .grad-bg{ background:linear-gradient(115deg,var(--red) 0%,#9B1F5C 52%,var(--purple) 100%); }
+
+  .noise{
+    position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .shadow-glow{ box-shadow: 0 20px 60px -15px rgba(204,51,0,.35), 0 8px 30px -10px rgba(102,0,204,.35); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.85rem 1.6rem; border-radius:999px; font-weight:700; font-size:.85rem;
+    letter-spacing:.02em;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s cubic-bezier(.16,1,.3,1), background-color .35s;
+  }
+  .btn:hover{ transform: translateY(-2px) scale(1.015); }
+  .btn:active{ transform: translateY(0) scale(0.98); }
+  .btn-dark{ background:var(--ink); color:var(--paper); }
+  .btn-dark:hover{ box-shadow: 0 14px 30px -10px rgba(10,10,10,.5); }
+  .btn-outline{ border:1.5px solid rgba(244,239,231,.35); color:var(--paper); }
+  .btn-outline:hover{ border-color:var(--paper); background:rgba(244,239,231,.06); }
+  .btn:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+
+  .card-surface{
+    background:var(--surface);
+    box-shadow: 0 1px 0 rgba(244,239,231,.06) inset, 0 18px 40px -20px rgba(0,0,0,.6);
+  }
+
+  ::selection{ background:var(--red); color:var(--paper); }
+
+  /* ---- format clock: segment badge + vertical cue spine ---- */
+  .seg-badge{
+    width:34px; height:34px; border-radius:999px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Archivo Black','Inter',sans-serif; font-size:.95rem; color:var(--paper);
+    background:linear-gradient(135deg,var(--red),var(--purple));
+    box-shadow:0 6px 16px -8px rgba(102,0,204,.6);
+  }
+  .cue-track{
+    position:relative; margin-left:16px; padding-left:26px;
+    border-left:2px solid rgba(244,239,231,.12);
+  }
+  .cue-node{ position:relative; padding:.55rem 0; }
+  .cue-node + .cue-node{ border-top:1px solid rgba(244,239,231,.06); }
+  .cue-node::before{
+    content:''; position:absolute; left:-33px; top:.85rem;
+    width:11px; height:11px; border-radius:999px;
+    background:linear-gradient(135deg,var(--red),var(--purple));
+    box-shadow:0 0 0 4px var(--surface);
+  }
+  .break-row{ display:flex; align-items:center; gap:.9rem; margin:1.25rem 0 1.25rem; color:rgba(244,239,231,.4); }
+  .break-row::before,.break-row::after{
+    content:''; height:1px; flex:1;
+    background:repeating-linear-gradient(90deg, rgba(244,239,231,.28) 0 5px, transparent 5px 11px);
+  }
+  .break-label{ font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap; }
+
+  /* cue rundown rows (rules list) */
+  .cue{
+    display:grid; grid-template-columns: 92px 1fr; gap:.75rem 1rem; align-items:baseline;
+    padding:.65rem 0; border-top:1px solid rgba(244,239,231,.08);
+  }
+  .cue:first-of-type{ border-top:0; }
+  @media (max-width:480px){
+    .cue{ grid-template-columns: 1fr; gap:.15rem; }
+  }
+
+  .rule-check{ color:var(--red); flex-shrink:0; }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<header class="border-b border-white/[.06] sticky top-0 z-40 bg-[#0A0A0A]/85 backdrop-blur-md">
+  <div class="max-w-[1040px] mx-auto px-5 md:px-10 h-16 md:h-20 flex items-center justify-between">
+    <a href="https://rapfabulous.com/" class="flex items-center gap-2.5" aria-label="rapfabulous home">
+      <img src="../assets/brand/r-mark-gradient.png" alt="" class="h-7 md:h-8 w-auto" />
+      <span class="font-display text-lg md:text-xl tracking-tight">rapfabulous<sup class="text-[9px] align-super">®</sup></span>
+    </a>
+    <span class="text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/40">DJ Mix</span>
+  </div>
+</header>
+
+<main class="max-w-[1040px] mx-auto px-5 md:px-10 py-14 md:py-20">
+
+  <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">for mixshow djs</p>
+  <h1 class="font-display text-[12vw] leading-[0.95] sm:text-6xl md:text-7xl">DJ Mix<br/>Weekends</h1>
+
+  <p class="mt-6 md:mt-8 max-w-2xl text-base md:text-lg font-medium text-[#F4EFE7]/80">
+    DJ Mix weekends are 2-hour mixes on the rapfabulous weekend radio show, highlighting Mixshow DJs across the country. The featured DJ creates the mix and co-hosts with Mic Fox — celebrating their skills and platforming their abilities.
+  </p>
+
+  <!-- ============ FEATURED MIX ============ -->
+  <section class="mt-12 md:mt-16">
+    <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">featured mix</p>
+    <p class="font-display text-2xl md:text-3xl mb-5">DJ Mix Weekend — 1 Year Anniversary <span class="mono text-sm align-middle text-[#F4EFE7]/45">EP 55</span></p>
+    <div id="featured-mix" class="card-surface rounded-2xl p-3 md:p-4">
+      <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Frapfabulous%2Fep55-dj-mix-weekend-rapfabulous-1-year-anniversary%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="rounded-lg block"></iframe>
+    </div>
+  </section>
+
+  <!-- ============ FORMAT CLOCKS ============ -->
+  <section class="mt-16 md:mt-24">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">the format</p>
+    <h2 class="font-display text-4xl md:text-5xl">Mixshow Clocks.</h2>
+    <p class="mt-4 max-w-2xl text-sm md:text-base text-[#F4EFE7]/70">
+      Each hour runs two mix segments split by a network commercial break. Hit these marks so your mix drops cleanly into breaks and back.
+    </p>
+
+    <!-- HOUR 1 -->
+    <div class="mt-8 md:mt-10 card-surface rounded-2xl p-6 md:p-8 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+      <div class="flex items-baseline justify-between gap-4 mb-7">
+        <p class="font-display text-2xl md:text-3xl">Hour 1</p>
+        <p class="mono text-xs text-[#F4EFE7]/50">LEGAL ID :05 @ 00:00</p>
+      </div>
+
+      <!-- Segment 1 -->
+      <div class="flex items-center gap-3 mb-3">
+        <span class="seg-badge">1</span>
+        <div><p class="font-bold leading-tight">Segment 1</p><p class="mono text-xs text-[#F4EFE7]/45">12:00 TRT</p></div>
+      </div>
+      <div class="cue-track">
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">00:00–01:00</span><span class="text-sm text-[#F4EFE7]/85">Start mix with a <strong>1-min instrumental</strong> for the show intro (talk break).</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">11:00–12:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1-min instrumental</strong> — talk break into commercials.</span></div>
+      </div>
+
+      <div class="break-row"><span class="break-label">Network commercials</span></div>
+
+      <!-- Segment 2 -->
+      <div class="flex items-center gap-3 mb-3">
+        <span class="seg-badge">2</span>
+        <div><p class="font-bold leading-tight">Segment 2</p><p class="mono text-xs text-[#F4EFE7]/45">32:00 TRT</p></div>
+      </div>
+      <div class="cue-track">
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">00:00–00:05</span><span class="text-sm text-[#F4EFE7]/85">Start mix.</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">12:00–13:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1-min instrumental</strong> — talk break between songs.</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">30:45–32:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1:15 instrumental</strong> — talk break into commercials.</span></div>
+      </div>
+    </div>
+
+    <!-- HOUR 2 -->
+    <div class="mt-6 card-surface rounded-2xl p-6 md:p-8 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+      <div class="flex items-baseline justify-between gap-4 mb-7">
+        <p class="font-display text-2xl md:text-3xl">Hour 2</p>
+        <p class="mono text-xs text-[#F4EFE7]/50">LEGAL ID :05 @ 00:00</p>
+      </div>
+
+      <!-- Segment 1 -->
+      <div class="flex items-center gap-3 mb-3">
+        <span class="seg-badge">1</span>
+        <div><p class="font-bold leading-tight">Segment 1</p><p class="mono text-xs text-[#F4EFE7]/45">12:00 TRT</p></div>
+      </div>
+      <div class="cue-track">
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">00:00–00:05</span><span class="text-sm text-[#F4EFE7]/85">Start mix <em class="text-[#F4EFE7]/55 not-italic">(no instrumental)</em>.</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">11:00–12:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1-min instrumental</strong> — talk break into commercials.</span></div>
+      </div>
+
+      <div class="break-row"><span class="break-label">Network commercials</span></div>
+
+      <!-- Segment 2 -->
+      <div class="flex items-center gap-3 mb-3">
+        <span class="seg-badge">2</span>
+        <div><p class="font-bold leading-tight">Segment 2</p><p class="mono text-xs text-[#F4EFE7]/45">32:00 TRT</p></div>
+      </div>
+      <div class="cue-track">
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">00:00–00:05</span><span class="text-sm text-[#F4EFE7]/85">Start mix <em class="text-[#F4EFE7]/55 not-italic">(no instrumental)</em>.</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">12:00–13:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1-min instrumental</strong> — talk break between songs.</span></div>
+        <div class="cue-node"><span class="mono text-sm grad-text font-bold block mb-0.5">30:45–32:00</span><span class="text-sm text-[#F4EFE7]/85">Mix into a <strong>1:15 instrumental</strong> — talk break into commercials.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMMING RULES ============ -->
+  <section class="mt-16 md:mt-24">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">the sound</p>
+    <h2 class="font-display text-4xl md:text-5xl">Music programming.</h2>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-1">
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="rule-check w-5 h-5 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85">Start mix segments with a <strong>very familiar throwback track</strong>.</span>
+      </div>
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="rule-check w-5 h-5 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85">If you mix something "deep from the crate," follow up with a familiar track.</span>
+      </div>
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="rule-check w-5 h-5 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85">Song year range is <strong>1979 – 2013</strong>.</span>
+      </div>
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="rule-check w-5 h-5 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85">You <strong>can</strong> mix 1–2 new songs per hour from a legendary artist (Nas, Clipse, Ghostface). No new artists released after 2013.</span>
+      </div>
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="rule-check w-5 h-5 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85">You <strong>can</strong> use artist &amp; DJ name drops, sound effects, etc. during your mix.</span>
+      </div>
+      <div class="cue !grid-cols-[auto_1fr] !gap-3 items-start">
+        <svg class="w-5 h-5 mt-0.5 text-[#F4EFE7]/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <span class="text-sm md:text-base text-[#F4EFE7]/85"><strong>No</strong> voice-overs or shout-outs.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATIONS ============ -->
+  <section class="mt-16 md:mt-24">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">where it airs</p>
+    <h2 class="font-display text-4xl md:text-5xl">Currently on.</h2>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">94.7 The Block · NYC</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">106.5 The Beat · Richmond</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">102 JAM · Orlando</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">102 JAMS · San Francisco</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">107.3 WAMO · Pittsburgh</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">96.3 R&amp;B · St. Louis</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">JUMP 97.1 · Knoxville</span>
+      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold text-[#F4EFE7]/55">97.1 QMG · Greensboro <span class="grad-text">· soon</span></span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-white/10 mt-10">
+  <div class="max-w-[1040px] mx-auto px-5 md:px-10 py-8 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#F4EFE7]/40">
+    <p>© 2026 BLURRED SPACES. All rights reserved.</p>
+    <a href="mailto:connect@rapfabulous.com" class="hover:text-[#F4EFE7]/70 transition-colors">connect@rapfabulous.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
