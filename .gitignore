@@ -1,0 +1,8 @@
+# local dev tooling (not part of the site)
+.tools/
+
+# unreferenced full-res source originals (compressed versions are used by the site)
+assets/photos/CONVOS YT Buckshot v2.png
+assets/video/convos-teaser-original.mp4
+
+.DS_Store
