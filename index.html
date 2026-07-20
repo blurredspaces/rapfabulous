@@ -227,12 +227,6 @@
 <!-- ============ HERO ============ -->
 <section id="top" class="relative pt-16 md:pt-20">
 
-  <!-- giant wordmark -->
-  <h1 class="hero-in relative px-3 md:px-6 pt-8 md:pt-12 pb-2 md:pb-4 select-none m-0">
-    <img src="assets/brand/wordmark-gradient.png" alt="rapfabulous — hip-hop interview series hosted by Mic Fox"
-      class="hero-wordmark w-full h-auto" style="filter: drop-shadow(0 10px 40px rgba(102,0,204,.25));" />
-  </h1>
-
   <!-- photo block -->
   <div id="hero-photo-block" class="relative w-full h-[62vh] md:h-[78vh] min-h-[420px] overflow-hidden">
     <video id="hero-video" muted loop playsinline preload="none" poster="assets/photos/mic-fox.jpg"
@@ -287,7 +281,7 @@
     <div>
       <p class="font-bold text-sm tracking-widest uppercase mb-4 md:mb-6">watch the conversations</p>
       <h2 class="font-display text-[13vw] leading-[0.9] lg:text-[4.2vw]">
-        latest CONVOS<br/>premiere.
+        latest <span class="text-[#F4EFE7]">CONVOS</span><br/>premiere.
       </h2>
       <div class="mt-6 md:mt-8 space-y-4 max-w-md text-sm md:text-base font-medium text-black/80">
         <p>Buckshot CONVOS just premiered — a super emcee, label exec, and hip-hop architect, sitting down with Mic Fox.</p>
@@ -316,6 +310,14 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============ BRAND DIVIDER ============ -->
+<section id="brand-divider" class="relative bg-[#0A0A0A] py-14 md:py-20">
+  <h1 class="px-3 md:px-6 select-none m-0">
+    <img src="assets/brand/wordmark-gradient.png" alt="rapfabulous — hip-hop interview series hosted by Mic Fox"
+      class="hero-wordmark w-full h-auto max-w-4xl mx-auto block" style="filter: drop-shadow(0 10px 40px rgba(102,0,204,.25));" />
+  </h1>
 </section>
 
 <!-- ============ LIVE RADIO ============ -->
@@ -437,13 +439,14 @@
     });
     photoBlock.addEventListener('mouseleave', () => { spotlight.style.opacity = '0'; });
 
-    document.getElementById('top').addEventListener('mousemove', (e) => {
-      const r = document.getElementById('top').getBoundingClientRect();
+    const brandDivider = document.getElementById('brand-divider');
+    brandDivider.addEventListener('mousemove', (e) => {
+      const r = brandDivider.getBoundingClientRect();
       const relX = (e.clientX - r.left) / r.width - 0.5;
       const relY = (e.clientY - r.top) / r.height - 0.5;
       wordmark.style.transform = `translate(${relX * -14}px, ${relY * -8}px)`;
     });
-    document.getElementById('top').addEventListener('mouseleave', () => { wordmark.style.transform = ''; });
+    brandDivider.addEventListener('mouseleave', () => { wordmark.style.transform = ''; });
 
     // gentle 3D tilt on cards
     document.querySelectorAll('.tilt-card').forEach((card) => {
