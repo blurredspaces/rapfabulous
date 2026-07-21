@@ -28,6 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/yt-embed.css">
 <style>
   :root{
     --red:#CC3300;
@@ -290,8 +291,9 @@
     </div>
 
     <div>
-      <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener"
-        class="tilt-card group block relative rounded-2xl overflow-hidden shadow-glow border border-black/10 bg-black">
+      <div class="yt-embed tilt-card group relative rounded-2xl overflow-hidden shadow-glow border border-black/10 bg-black"
+        data-yt="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj"
+        data-title="Buckshot CONVOS — Bucktown, Biggie & 2Pac, KRS-One">
         <div class="aspect-video w-full overflow-hidden">
           <img src="assets/photos/buckshot-convos.jpg" alt="Buckshot CONVOS — Bucktown, Biggie & 2Pac, KRS-One"
             class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
@@ -303,7 +305,7 @@
           </span>
         </div>
         <p class="absolute left-5 bottom-4 md:left-6 md:bottom-5 font-display text-[#F4EFE7] text-sm md:text-base tracking-tight">Buckshot CONVOS — now streaming</p>
-      </a>
+      </div>
       <div class="mt-6 flex flex-wrap gap-3 md:gap-4">
         <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener" class="btn btn-dark">watch buckshot convos</a>
         <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="btn btn-outline !border-black/30 !text-black hover:!bg-black/5">see all episodes</a>
@@ -605,5 +607,6 @@
   }, { threshold: 0.15 });
   gridObserver.observe(grid);
 </script>
+<script src="assets/js/yt-embed.js" defer></script>
 </body>
 </html>

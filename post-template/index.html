@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- WP: <title><?php wp_title(); ?></title> -->
+<title>Buckshot on Bucktown, Biggie &amp; 2Pac — rapfabulous®</title>
+<meta name="description" content="Inside the latest rapfabulous CONVOS: a super emcee, label exec, and hip-hop architect sits down with Mic Fox." />
+<link rel="icon" href="../assets/brand/favicon.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+
+<!-- WP: og/twitter tags built from the_post_thumbnail() + get_the_excerpt() -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Buckshot on Bucktown, Biggie & 2Pac" />
+<meta property="og:image" content="../assets/photos/buckshot-convos.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/yt-embed.css">
+<style>
+  :root{
+    --red:#CC3300;
+    --purple:#6600CC;
+    --ink:#0A0A0A;
+    --surface:#141414;
+    --surface-2:#1C1C1C;
+    --paper:#F4EFE7;
+  }
+  *{ -webkit-tap-highlight-color: transparent; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.7;
+  }
+  .font-display{ font-family:'Archivo Black','Inter',sans-serif; letter-spacing:-0.03em; line-height:0.94; }
+  .grad-text{
+    background:linear-gradient(100deg,var(--red) 0%,#9B1F5C 50%,var(--purple) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .grad-bg{ background:linear-gradient(115deg,var(--red) 0%,#9B1F5C 52%,var(--purple) 100%); }
+  .noise{
+    position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .shadow-glow{ box-shadow: 0 20px 60px -15px rgba(204,51,0,.35), 0 8px 30px -10px rgba(102,0,204,.35); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.7rem 1.4rem; border-radius:999px; font-weight:700; font-size:.8rem; letter-spacing:.02em;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, background-color .35s, border-color .35s;
+  }
+  .btn:hover{ transform: translateY(-2px) scale(1.015); }
+  .btn-solid{ background:var(--paper); color:var(--ink); }
+  .btn-outline{ border:1.5px solid rgba(244,239,231,.3); color:var(--paper); }
+  .btn-outline:hover{ border-color:var(--paper); background:rgba(244,239,231,.06); }
+  .btn:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+
+  .nav-link{ position:relative; color:rgba(244,239,231,.75); transition: color .3s; font-weight:600; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:1.5px; background:linear-gradient(90deg,var(--red),var(--purple)); transition: width .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover{ color:var(--paper); } .nav-link:hover::after{ width:100%; }
+
+  ::selection{ background:var(--red); color:var(--paper); }
+
+  /* ---------- ARTICLE PROSE (maps to WordPress the_content()) ---------- */
+  .prose{ font-size:1.15rem; line-height:1.85; color:rgba(244,239,231,.86); }
+  @media (max-width:640px){ .prose{ font-size:1.075rem; } }
+  .prose > * + *{ margin-top:1.5rem; }
+  .prose > .lead{ font-size:1.4rem; line-height:1.6; color:var(--paper); font-weight:500; }
+  @media (max-width:640px){ .prose > .lead{ font-size:1.25rem; } }
+  .prose h2{ font-family:'Archivo Black',sans-serif; letter-spacing:-0.02em; font-size:1.9rem; line-height:1.1; margin-top:3rem; }
+  .prose h3{ font-weight:800; font-size:1.35rem; margin-top:2.25rem; }
+  .prose a{ color:var(--paper); text-decoration:underline; text-decoration-color:rgba(204,51,0,.6); text-underline-offset:3px; text-decoration-thickness:2px; transition:text-decoration-color .25s; }
+  .prose a:hover{ text-decoration-color:var(--red); }
+  .prose strong{ color:var(--paper); font-weight:700; }
+  .prose ul{ list-style:none; padding-left:0; }
+  .prose ul li{ position:relative; padding-left:1.6rem; margin-top:.6rem; }
+  .prose ul li::before{ content:''; position:absolute; left:0; top:.7em; width:8px; height:8px; border-radius:2px; background:linear-gradient(135deg,var(--red),var(--purple)); }
+  .prose blockquote{
+    font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:1.7rem; line-height:1.35;
+    color:var(--paper); border-left:3px solid transparent;
+    border-image:linear-gradient(180deg,var(--red),var(--purple)) 1;
+    padding:.25rem 0 .25rem 1.5rem; margin:2.5rem 0;
+  }
+  @media (max-width:640px){ .prose blockquote{ font-size:1.4rem; } }
+  .prose blockquote cite{ display:block; font-family:'Inter',sans-serif; font-style:normal; font-weight:700; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(244,239,231,.5); margin-top:1rem; }
+  .prose figure{ margin:2.5rem 0; }
+  .prose figure img{ border-radius:12px; width:100%; }
+  .prose figcaption{ font-size:.8rem; color:rgba(244,239,231,.45); margin-top:.75rem; text-align:center; }
+  .prose hr{ border:0; height:1px; background:rgba(244,239,231,.12); margin:3rem 0; }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- ============ SITE HEADER (WP: get_header / nav menu) ============ -->
+<header class="sticky top-0 z-40 backdrop-blur-md bg-[#0A0A0A]/80 border-b border-white/[.06]">
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10 h-16 md:h-18 flex items-center justify-between">
+    <a href="https://rapfabulous.com/" class="flex items-center gap-2.5 shrink-0" aria-label="rapfabulous home">
+      <img src="../assets/brand/r-mark-gradient.png" alt="" class="h-7 md:h-8 w-auto" />
+      <span class="font-display text-lg md:text-xl">rapfabulous<sup class="text-[9px] align-super">®</sup></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm" aria-label="Primary">
+      <a href="https://rapfabulous.com/" class="nav-link">.home</a>
+      <a href="https://rapfabulous.com/videos" class="nav-link">.videos</a>
+      <a href="https://rapfabulous.com/live-radio" class="nav-link">.live radio</a>
+      <a href="https://rapfabulous.com/stories" class="nav-link">.stories</a>
+    </nav>
+    <a href="https://rapfabulous.com/live-radio" class="btn btn-solid !py-2 !px-4">
+      <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span></span>
+      listen live
+    </a>
+  </div>
+</header>
+
+<!-- ============ ARTICLE ============ -->
+<article>
+
+  <!-- ---- Article header (WP: category, the_title, excerpt, author, date) ---- -->
+  <header class="max-w-[760px] mx-auto px-5 md:px-8 pt-12 md:pt-20 pb-8 md:pb-10">
+    <!-- WP: the_category() -->
+    <a href="https://rapfabulous.com/stories" class="inline-block font-bold text-xs tracking-widest uppercase grad-text mb-5">CONVOS · Stories</a>
+
+    <!-- WP: the_title() -->
+    <h1 class="font-display text-4xl md:text-6xl">Buckshot on Bucktown, Biggie &amp; 2Pac, and building a legacy</h1>
+
+    <!-- WP: the_excerpt() / subtitle field -->
+    <p class="mt-6 text-lg md:text-xl text-[#F4EFE7]/65 leading-relaxed">The Boot Camp Clik founder sits down with Mic Fox for the latest rapfabulous CONVOS — a timeline-driven conversation on origins, the golden era, and what independence really costs.</p>
+
+    <!-- WP: byline — get_avatar(), the_author(), get_the_date(), reading time plugin -->
+    <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[#F4EFE7]/55 border-t border-white/10 pt-6">
+      <div class="flex items-center gap-2.5">
+        <span class="h-9 w-9 rounded-full grad-bg flex items-center justify-center font-display text-xs text-[#F4EFE7]">MF</span>
+        <span class="font-semibold text-[#F4EFE7]/85">Mic Fox</span>
+      </div>
+      <span class="text-[#F4EFE7]/25">·</span>
+      <time datetime="2026-07-20">July 20, 2026</time>
+      <span class="text-[#F4EFE7]/25">·</span>
+      <span>6 min read</span>
+    </div>
+  </header>
+
+  <!-- ---- Featured image (WP: the_post_thumbnail('full')) ---- -->
+  <figure class="max-w-[1100px] mx-auto px-5 md:px-8">
+    <div class="relative rounded-2xl overflow-hidden shadow-glow">
+      <img src="../assets/photos/buckshot-convos.jpg" alt="Buckshot during the rapfabulous CONVOS taping" class="w-full h-auto" />
+      <div class="noise"></div>
+    </div>
+    <figcaption class="text-xs text-[#F4EFE7]/45 mt-3 text-center px-4">Buckshot at the rapfabulous CONVOS taping, MNN Studios, NYC. — WP: caption field</figcaption>
+  </figure>
+
+  <!-- ---- Body (WP: the_content() — everything below is editable in the post editor) ---- -->
+  <div class="prose max-w-[680px] mx-auto px-5 md:px-8 py-12 md:py-16">
+    <p class="lead">There's a moment early in every rapfabulous CONVOS where the guest stops performing and starts remembering. For Buckshot, it came the second the conversation turned to Bucktown — not the legend, the actual block.</p>
+
+    <p>Over two hours with Mic Fox, the Boot Camp Clik founder traced a line from mixtape-era Brooklyn to running his own catalog decades later. This wasn't a nostalgia lap. It was a working artist explaining, step by step, how the culture actually gets built — and who gets left holding the paperwork.</p>
+
+    <h2>The golden era, without the gloss</h2>
+
+    <p>Ask most people about the mid-90s and you get a highlight reel. Buckshot gave something closer to a field report: the studios that doubled as classrooms, the friendships that doubled as business partnerships, and the rivalries that <strong>pushed everyone to sharpen up or fall back</strong>.</p>
+
+    <p>He's careful with names and generous with credit — the mark of someone who watched the era get flattened into myth and wants the record kept straight.</p>
+
+    <blockquote>
+      The culture never needed permission. It needed people willing to build the thing and own it after.
+      <cite>— From the CONVOS conversation</cite>
+    </blockquote>
+
+    <h2>Independence, and what it actually costs</h2>
+
+    <p>The back half of the conversation gets into the part most interviews skip: ownership. What it means to control your masters, why the deal that looks best on day one rarely is, and the discipline required to bet on yourself when the advance is smaller than the offer next door.</p>
+
+    <ul>
+      <li>Why the catalog outlasts the hit</li>
+      <li>The difference between "reach" and a real, connected audience</li>
+      <li>How a scene protects its own — and when it doesn't</li>
+    </ul>
+
+    <p>It's the kind of talk that plays as well for a 19-year-old uploading beats as it does for the heads who were there. Which is, more or less, the whole point of the show.</p>
+
+    <!-- WP: [rf_youtube url="..."] shortcode / block — click-to-play facade, no YouTube JS until clicked -->
+    <figure>
+      <div class="yt-embed rounded-xl overflow-hidden"
+        data-yt="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj"
+        data-title="Buckshot CONVOS — full episode"
+        data-poster="../assets/photos/buckshot-convos.jpg"></div>
+      <figcaption>Watch the full Buckshot CONVOS episode. — WP: paste any share link into the rf_youtube block and it plays inline</figcaption>
+    </figure>
+
+    <p>The full mix and radio takeover are streaming now. If you only catch one thing, make it the last fifteen minutes — that's where the real gems land.</p>
+
+    <hr />
+
+    <!-- ---- Share row ---- -->
+    <div class="flex items-center gap-3 flex-wrap not-prose">
+      <span class="text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/45 mr-1">Share</span>
+      <a href="#" aria-label="Share on X" class="btn btn-outline !p-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7 8 8.2 12h-6.4l-5-6.6L6 22H2.9l7.5-8.6L2 2h6.5l4.5 6.1L18.9 2Z"/></svg></a>
+      <a href="#" aria-label="Share on Facebook" class="btn btn-outline !p-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13v-2c0-.6.4-1 1-1Z"/></svg></a>
+      <a href="#" aria-label="Copy link" class="btn btn-outline !p-2.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></a>
+    </div>
+  </div>
+
+  <!-- ---- Author bio (WP: the_author_meta) ---- -->
+  <aside class="max-w-[680px] mx-auto px-5 md:px-8 pb-4">
+    <div class="rounded-2xl border border-white/10 p-6 md:p-7 flex gap-5 items-start">
+      <span class="h-14 w-14 rounded-full grad-bg flex items-center justify-center font-display text-lg text-[#F4EFE7] shrink-0">MF</span>
+      <div>
+        <p class="font-bold text-lg">Mic Fox</p>
+        <p class="text-sm text-[#F4EFE7]/65 mt-1">Host of rapfabulous. Brand strategist and former radio/music exec, platforming hip-hop's architects one CONVO at a time.</p>
+      </div>
+    </div>
+  </aside>
+
+</article>
+
+<!-- ============ RELATED (WP: WP_Query — recent posts, same category) ============ -->
+<section class="max-w-[1100px] mx-auto px-5 md:px-8 py-14 md:py-20 border-t border-white/10 mt-8">
+  <div class="flex items-end justify-between gap-4 mb-8">
+    <h2 class="font-display text-3xl md:text-4xl">More CONVOS.</h2>
+    <a href="https://rapfabulous.com/stories" class="nav-link text-sm shrink-0">all stories →</a>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <!-- repeatable post card -->
+    <a href="#" class="group block rounded-2xl overflow-hidden border border-white/10 bg-[#141414] hover:bg-[#1C1C1C] transition-colors">
+      <div class="aspect-video overflow-hidden bg-black">
+        <img src="../assets/photos/smif-n-wessun.jpg" alt="" class="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-500" />
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-[10px] tracking-widest uppercase grad-text mb-2">CONVOS</p>
+        <p class="font-display text-lg leading-tight">Smif-N-Wessun on Bucktown chemistry</p>
+        <p class="text-xs text-[#F4EFE7]/45 mt-2">July 12, 2026 · 5 min read</p>
+      </div>
+    </a>
+    <a href="#" class="group block rounded-2xl overflow-hidden border border-white/10 bg-[#141414] hover:bg-[#1C1C1C] transition-colors">
+      <div class="aspect-video overflow-hidden bg-black">
+        <img src="../assets/photos/havoc-alchemist-wood-harris.jpg" alt="" class="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-500" />
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-[10px] tracking-widest uppercase grad-text mb-2">CONVOS</p>
+        <p class="font-display text-lg leading-tight">Havoc, Alchemist &amp; Wood Harris on the craft</p>
+        <p class="text-xs text-[#F4EFE7]/45 mt-2">June 28, 2026 · 7 min read</p>
+      </div>
+    </a>
+    <a href="#" class="group block rounded-2xl overflow-hidden border border-white/10 bg-[#141414] hover:bg-[#1C1C1C] transition-colors">
+      <div class="aspect-video overflow-hidden bg-black">
+        <img src="../assets/photos/mic-fox.jpg" alt="" class="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-500" />
+      </div>
+      <div class="p-5">
+        <p class="font-bold text-[10px] tracking-widest uppercase grad-text mb-2">Stories</p>
+        <p class="font-display text-lg leading-tight">Why the 1979–2013 window still rules the mix</p>
+        <p class="text-xs text-[#F4EFE7]/45 mt-2">June 15, 2026 · 4 min read</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER (WP: get_footer) ============ -->
+<footer class="border-t border-white/10">
+  <div class="max-w-[1200px] mx-auto px-5 md:px-10 py-10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#F4EFE7]/40">
+    <p>© 2026 BLURRED SPACES. All rights reserved.</p>
+    <a href="mailto:connect@rapfabulous.com" class="hover:text-[#F4EFE7]/70 transition-colors">connect@rapfabulous.com</a>
+  </div>
+</footer>
+
+<script src="../assets/js/yt-embed.js" defer></script>
+</body>
+</html>
