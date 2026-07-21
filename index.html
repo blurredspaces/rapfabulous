@@ -116,6 +116,12 @@
   .radio-drop:hover .radio-drop-chevron{ transform:rotate(180deg); }
   .radio-drop-chevron{ transition:transform .2s; }
 
+  .glass-panel{
+    background:rgba(20,20,20,.55);
+    backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
+    box-shadow: 0 1px 0 rgba(244,239,231,.08) inset, 0 18px 40px -20px rgba(0,0,0,.7);
+  }
+
   .photo-treat{ filter: grayscale(1) contrast(1.45) brightness(.62); transform: scale(1.55); transform-origin: 50% 22%; }
   .video-treat{ filter: grayscale(.45) contrast(1.2) brightness(.78) saturate(1.1); }
 
@@ -191,7 +197,7 @@
           <svg class="radio-drop-chevron h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="radio-drop-panel">
-          <div class="card-surface rounded-xl overflow-hidden border border-white/10 min-w-[168px]">
+          <div class="glass-panel rounded-xl overflow-hidden border border-white/10 min-w-[168px]">
             <a href="#live-radio" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors">.live radio</a>
             <a href="shows/" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors border-t border-white/[.06]">.replay radio</a>
           </div>
