@@ -46,6 +46,11 @@
   }
 
   .shadow-glow{ box-shadow: 0 20px 60px -15px rgba(204,51,0,.35), 0 8px 30px -10px rgba(102,0,204,.35); }
+  .play-glass{
+    border:1px solid rgba(244,239,231,.3);
+    background:linear-gradient(115deg, rgba(204,51,0,.55), rgba(155,31,92,.55) 52%, rgba(102,0,204,.55));
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  }
 
   .btn{
     display:inline-flex; align-items:center; gap:.5rem;
@@ -130,7 +135,7 @@
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/10"></div>
     <div class="absolute inset-0 flex items-center justify-center">
-      <span class="h-16 w-16 md:h-20 md:w-20 rounded-full grad-bg shadow-glow flex items-center justify-center transition-transform duration-350 ease-out group-hover:scale-110">
+      <span class="h-16 w-16 md:h-20 md:w-20 rounded-full play-glass shadow-glow flex items-center justify-center transition-transform duration-350 ease-out group-hover:scale-110">
         <svg class="h-6 w-6 md:h-7 md:w-7 text-[#F4EFE7] translate-x-[1px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
       </span>
     </div>
