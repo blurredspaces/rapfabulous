@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Replay Radio — rapfabulous®</title>
+<meta name="description" content="Replay previous rapfabulous weekend radio episodes you may have missed." />
+<link rel="canonical" href="https://rapfabulous.com/shows/" />
+<meta name="theme-color" content="#0A0A0A" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rapfabulous.com/shows/" />
+<meta property="og:site_name" content="rapfabulous" />
+<meta property="og:title" content="Replay Radio — rapfabulous®" />
+<meta property="og:description" content="Replay previous rapfabulous weekend radio episodes you may have missed." />
+<meta property="og:image" content="https://rapfabulous.com/assets/photos/buckshot-convos.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Replay Radio — rapfabulous®" />
+<meta name="twitter:description" content="Replay previous rapfabulous weekend radio episodes you may have missed." />
+
+<link rel="icon" href="../assets/brand/favicon.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#CC3300;
+    --purple:#6600CC;
+    --ink:#0A0A0A;
+    --surface:#141414;
+    --surface-2:#1C1C1C;
+    --paper:#F4EFE7;
+  }
+  *{ -webkit-tap-highlight-color: transparent; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.7;
+  }
+  .font-display{ font-family:'Archivo Black','Inter',sans-serif; letter-spacing:-0.03em; line-height:0.92; }
+  .grad-text{
+    background:linear-gradient(100deg,var(--red) 0%,#9B1F5C 50%,var(--purple) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .grad-bg{ background:linear-gradient(115deg,var(--red) 0%,#9B1F5C 52%,var(--purple) 100%); }
+  .noise{
+    position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .shadow-glow{ box-shadow: 0 20px 60px -15px rgba(204,51,0,.35), 0 8px 30px -10px rgba(102,0,204,.35); }
+  .shadow-glow-sm{ box-shadow: 0 8px 24px -8px rgba(204,51,0,.4), 0 4px 14px -6px rgba(102,0,204,.4); }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.85rem 1.6rem; border-radius:999px; font-weight:700; font-size:.85rem; letter-spacing:.02em;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s cubic-bezier(.16,1,.3,1), background-color .35s;
+  }
+  .btn:hover{ transform: translateY(-2px) scale(1.015); }
+  .btn:active{ transform: translateY(0) scale(0.98); }
+  .btn-solid{ background:var(--paper); color:var(--ink); }
+  .btn-solid:hover{ box-shadow: 0 14px 30px -10px rgba(244,239,231,.35); }
+  .btn-outline{ border:1.5px solid rgba(244,239,231,.35); color:var(--paper); }
+  .btn-outline:hover{ border-color:var(--paper); background:rgba(244,239,231,.06); }
+  .btn:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+
+  .nav-link{ position:relative; color:rgba(244,239,231,.75); transition: color .3s; }
+  .nav-link::after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1.5px;
+    background:linear-gradient(90deg,var(--red),var(--purple));
+    transition: width .35s cubic-bezier(.16,1,.3,1);
+  }
+  .nav-link:hover{ color:var(--paper); }
+  .nav-link:hover::after{ width:100%; }
+  .nav-link:focus-visible{ outline:2px solid var(--paper); outline-offset:4px; border-radius:2px; }
+
+  .radio-drop{ position:relative; }
+  .radio-drop-panel{
+    position:absolute; left:50%; top:100%; transform:translate(-50%,4px);
+    padding-top:.75rem; opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .2s cubic-bezier(.16,1,.3,1), transform .2s cubic-bezier(.16,1,.3,1), visibility .2s;
+  }
+  .radio-drop:hover .radio-drop-panel,
+  .radio-drop:focus-within .radio-drop-panel{
+    opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+  }
+  .radio-drop:hover .radio-drop-chevron{ transform:rotate(180deg); }
+  .radio-drop-chevron{ transition:transform .2s; }
+
+  .card-surface{
+    background:var(--surface);
+    box-shadow: 0 1px 0 rgba(244,239,231,.06) inset, 0 18px 40px -20px rgba(0,0,0,.6);
+  }
+  .tilt-card{ transition: transform .3s cubic-bezier(.16,1,.3,1); transform-style: preserve-3d; will-change: transform; }
+
+  ::selection{ background:var(--red); color:var(--paper); }
+
+  #mobile-menu[data-open="true"]{ opacity:1; pointer-events:auto; }
+  #mobile-menu a[data-menu-link]{
+    background:linear-gradient(100deg,var(--red) 0%,#9B1F5C 50%,var(--purple) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:0; transform:translateY(14px);
+    transition: opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  #mobile-menu[data-open="true"] a[data-menu-link]{ opacity:1; transform:translateY(0); }
+  #mobile-menu[data-open="true"] a[data-menu-link]:nth-child(1){ transition-delay:.06s; }
+  #mobile-menu[data-open="true"] a[data-menu-link]:nth-child(2){ transition-delay:.11s; }
+  #mobile-menu[data-open="true"] a[data-menu-link]:nth-child(3){ transition-delay:.16s; }
+  #mobile-menu[data-open="true"] a[data-menu-link]:nth-child(4){ transition-delay:.21s; }
+  #mobile-menu[data-open="true"] a[data-menu-link]:nth-child(5){ transition-delay:.26s; }
+
+  #menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+  #menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2){ opacity:0; }
+  #menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+  #listen-live-btn{ transition: background-color .4s, box-shadow .4s, color .4s; }
+  #listen-live-btn.is-off-air{ background:#2A2A2A; color:rgba(244,239,231,.55); box-shadow:none; }
+  #listen-live-btn.is-off-air:hover{ box-shadow:none; background:#333; }
+
+  .mix-frame{ border-radius:14px; overflow:hidden; background:#000; }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- ============ HEADER ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#0A0A0A]/70 border-b border-white/[.06]">
+  <div class="max-w-[1600px] mx-auto px-5 md:px-10 h-16 md:h-20 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2.5 shrink-0" aria-label="rapfabulous home">
+      <img src="../assets/brand/r-mark-gradient.png" alt="" class="h-7 md:h-8 w-auto" />
+      <span class="font-display text-lg md:text-xl tracking-tight">rapfabulous<sup class="text-[9px] align-super">®</sup></span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Primary">
+      <a href="../index.html" class="nav-link">.home</a>
+      <a href="../index.html#convos" class="nav-link">.videos</a>
+      <div class="radio-drop">
+        <button type="button" class="nav-link flex items-center gap-1" aria-haspopup="true">
+          .radio
+          <svg class="radio-drop-chevron h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="radio-drop-panel">
+          <div class="card-surface rounded-xl overflow-hidden border border-white/10 min-w-[168px]">
+            <a href="../index.html#live-radio" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors">.live radio</a>
+            <a href="./" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors border-t border-white/[.06] grad-text">.replay radio</a>
+          </div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">.stories</a>
+    </nav>
+
+    <div class="flex items-center gap-4 md:gap-5">
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@rapfabulous" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.7c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 1 1 0-5.4c.3 0 .6 0 .9.1V9.9a5.9 5.9 0 0 0-.9-.1A6 6 0 1 0 16.5 15.9V8.3a8 8 0 0 0 4.5 1.4V6.4c-1.9 0-3.6-.9-4.5-2.4V2Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@rapfabulous" target="_blank" rel="noopener" aria-label="YouTube" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3c-.3-1-1-1.7-2-2C18.7 4.2 12 4.2 12 4.2s-6.7 0-8.5.5c-1 .3-1.7 1-2 2C1 8.4 1 12 1 12s0 3.6.5 5.3c.3 1 1 1.7 2 2 1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5c1-.3 1.7-1 2-2 .5-1.7.5-5.3.5-5.3ZM9.8 15.5V8.5l6.3 3.5-6.3 3.5Z"/></svg>
+        </a>
+      </div>
+      <a id="listen-live-btn" href="../index.html#live-radio" class="btn btn-solid !py-2.5 !px-4 md:!px-5 shadow-glow-sm">
+        <span class="relative flex h-2 w-2">
+          <span id="listen-live-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+          <span id="listen-live-dot" class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+        </span>
+        <span id="listen-live-label">off air</span>
+      </a>
+
+      <button id="menu-toggle" type="button" class="md:hidden relative h-9 w-9 shrink-0 flex flex-col items-center justify-center gap-[5px]" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="menu-bar block h-[1.5px] w-6 bg-[#F4EFE7] transition-transform duration-300"></span>
+        <span class="menu-bar block h-[1.5px] w-6 bg-[#F4EFE7] transition-opacity duration-300"></span>
+        <span class="menu-bar block h-[1.5px] w-6 bg-[#F4EFE7] transition-transform duration-300"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0A0A] md:hidden pointer-events-none opacity-0 transition-opacity duration-300" aria-hidden="true">
+  <div class="noise"></div>
+  <nav class="relative h-full flex flex-col justify-center gap-6 px-8" aria-label="Mobile">
+    <a href="../index.html" data-menu-link class="font-display text-4xl">.home</a>
+    <a href="../index.html#convos" data-menu-link class="font-display text-4xl">.videos</a>
+    <a href="../index.html#live-radio" data-menu-link class="font-display text-4xl">.live radio</a>
+    <a href="./" data-menu-link class="font-display text-4xl">.replay radio</a>
+    <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" data-menu-link class="font-display text-4xl">.stories</a>
+
+    <div class="flex items-center gap-5 mt-6">
+      <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@rapfabulous" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.7c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 1 1 0-5.4c.3 0 .6 0 .9.1V9.9a5.9 5.9 0 0 0-.9-.1A6 6 0 1 0 16.5 15.9V8.3a8 8 0 0 0 4.5 1.4V6.4c-1.9 0-3.6-.9-4.5-2.4V2Z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@rapfabulous" target="_blank" rel="noopener" aria-label="YouTube" class="text-[#F4EFE7]/60 hover:text-[#F4EFE7] transition-colors">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3c-.3-1-1-1.7-2-2C18.7 4.2 12 4.2 12 4.2s-6.7 0-8.5.5c-1 .3-1.7 1-2 2C1 8.4 1 12 1 12s0 3.6.5 5.3c.3 1 1 1.7 2 2 1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5c1-.3 1.7-1 2-2 .5-1.7.5-5.3.5-5.3ZM9.8 15.5V8.5l6.3 3.5-6.3 3.5Z"/></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-32 md:pt-44 pb-14 md:pb-20 grad-bg overflow-hidden">
+  <div class="noise"></div>
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 relative">
+    <p class="font-bold text-sm tracking-widest uppercase mb-4 text-[#0A0A0A]/70">.replay radio</p>
+    <h1 class="font-display text-[13vw] leading-[0.92] sm:text-6xl md:text-7xl text-[#0A0A0A]">Replay Radio.</h1>
+    <p class="mt-6 max-w-xl text-base md:text-lg font-medium text-[#0A0A0A]/75">
+      Replay previous rapfabulous weekend radio episodes you may have missed — the full weekend broadcast, on demand.
+    </p>
+  </div>
+</section>
+
+<!-- ============ EPISODES ============ -->
+<section class="relative bg-[#0A0A0A] py-14 md:py-20">
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+    <div class="grid grid-cols-1 gap-5">
+
+      <!-- EP 65 -->
+      <div class="tilt-card card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+          <p class="font-display text-xl md:text-2xl">Buckshot CONVOS Takeover</p>
+          <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 65</span>
+        </div>
+        <div class="mix-frame">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Frapfabulous%2Fep-65-buckshot-convos-takeover%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+        </div>
+      </div>
+
+      <!-- EP 55 -->
+      <div class="tilt-card card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+          <p class="font-display text-xl md:text-2xl">DJ Mix Weekend — 1 Year Anniversary</p>
+          <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 55</span>
+        </div>
+        <div class="mix-frame">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Frapfabulous%2Fep55-dj-mix-weekend-rapfabulous-1-year-anniversary%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+        </div>
+      </div>
+
+      <!-- EP 30 -->
+      <div class="tilt-card card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+          <p class="font-display text-xl md:text-2xl">Just Blaze Takeover</p>
+          <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 30</span>
+        </div>
+        <div class="mix-frame">
+          <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Frapfabulous%2Fep-30-just-blaze-takeover%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-3 md:gap-4">
+      <a href="https://www.mixcloud.com/rapfabulous/" target="_blank" rel="noopener" class="btn btn-outline">more on mixcloud</a>
+      <a href="../index.html#live-radio" class="btn btn-outline">see live schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative bg-[#0A0A0A] border-t border-white/10">
+  <div class="max-w-[1600px] mx-auto px-5 md:px-10 py-14 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr] gap-10 md:gap-8">
+      <div>
+        <img src="../assets/brand/wordmark-gradient.png" alt="rapfabulous" class="h-8 md:h-9 w-auto mb-4" />
+        <p class="text-sm text-[#F4EFE7]/60 max-w-xs">Where hip-hop celebrates the music, the culture, and you. Hosted by Mic Fox.</p>
+        <div class="flex items-center gap-4 mt-6">
+          <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#F4EFE7]/50 hover:text-[#F4EFE7] transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@rapfabulous" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#F4EFE7]/50 hover:text-[#F4EFE7] transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.7c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 1 1 0-5.4c.3 0 .6 0 .9.1V9.9a5.9 5.9 0 0 0-.9-.1A6 6 0 1 0 16.5 15.9V8.3a8 8 0 0 0 4.5 1.4V6.4c-1.9 0-3.6-.9-4.5-2.4V2Z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@rapfabulous" target="_blank" rel="noopener" aria-label="YouTube" class="text-[#F4EFE7]/50 hover:text-[#F4EFE7] transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3c-.3-1-1-1.7-2-2C18.7 4.2 12 4.2 12 4.2s-6.7 0-8.5.5c-1 .3-1.7 1-2 2C1 8.4 1 12 1 12s0 3.6.5 5.3c.3 1 1 1.7 2 2 1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5c1-.3 1.7-1 2-2 .5-1.7.5-5.3.5-5.3ZM9.8 15.5V8.5l6.3 3.5-6.3 3.5Z"/></svg>
+          </a>
+          <a href="https://bsky.app/profile/rapfabulous.com" target="_blank" rel="noopener" aria-label="Bluesky" class="text-[#F4EFE7]/50 hover:text-[#F4EFE7] transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.5C10.5 7.5 7 4.8 4.5 4c-1 0-1.5.5-1.5 1.5 0 1.2.3 6.3 1 8 .8 2 3 2.7 5 2.4-3 .4-5.6 1.6-2.2 5.4 3.8 4 5.2-.9 5.2-2.9 0 2 1.4 6.9 5.2 2.9 3.4-3.8.8-5-2.2-5.4 2 .3 4.2-.4 5-2.4.7-1.7 1-6.8 1-8 0-1-.5-1.5-1.5-1.5-2.5.8-6 3.5-7.5 6.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/50 mb-4">explore</p>
+        <ul class="space-y-2.5 text-sm font-semibold">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../index.html#convos" class="nav-link">Videos</a></li>
+          <li><a href="../index.html#live-radio" class="nav-link">Live Radio</a></li>
+          <li><a href="./" class="nav-link">Replay Radio</a></li>
+          <li><a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">Stories</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/50 mb-4">connect</p>
+        <a href="mailto:connect@rapfabulous.com" class="nav-link text-sm font-semibold">connect@rapfabulous.com</a>
+      </div>
+    </div>
+
+    <div class="mt-12 md:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#F4EFE7]/40">
+      <p>© 2026 BLURRED SPACES. All rights reserved.</p>
+      <p>rapfabulous® · Where hip-hop celebrates the music, the culture, and you.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- mobile menu ----
+  (function(){
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    function setOpen(open){
+      toggle.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('data-open', String(open));
+      menu.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  })();
+
+  // ---- listen-live button: same schedule logic as homepage ----
+  const MARKETS = [
+    { city: "New York, NY",     station: "94.7 The Block",   day: "Sun", start: 17, end: 19, tz: "America/New_York",    stream: "https://www.audacy.com/stations/947theblocknyc" },
+    { city: "Richmond, VA",     station: "106.5 The Beat",   day: "Sun", start: 10, end: 12, tz: "America/New_York",    stream: "https://www.audacy.com/stations/1065thebeat" },
+    { city: "Orlando, FL",      station: "102 JAM",          day: "Sun", start: 20, end: 22, tz: "America/New_York",    stream: "https://www.audacy.com/stations/102jamzorlando" },
+    { city: "San Francisco, CA",station: "102 JAMS",         day: "Sun", start: 20, end: 22, tz: "America/Los_Angeles", stream: "https://www.audacy.com/stations/102jamssf" },
+    { city: "Pittsburgh, PA",   station: "107.3 WAMO",       day: "Sat", start: 19, end: 21, tz: "America/New_York",    stream: "https://www.audacy.com/wamo1073" },
+    { city: "St. Louis, MO",    station: "96.3 R&B",         day: "Sat", start: 22, end: 24, tz: "America/Chicago",     stream: "https://www.audacy.com/stations/963rnb" },
+    { city: "Knoxville, TN",    station: "JUMP 97.1",        day: "Sun", start: 10, end: 12, tz: "America/New_York",    stream: "https://www.jumpradio.com/knoxville/player/" },
+  ];
+
+  function getLocal(tz){
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short', hour: 'numeric', hour12: false }).formatToParts(new Date());
+    const weekday = parts.find(p => p.type === 'weekday').value;
+    let hour = parseInt(parts.find(p => p.type === 'hour').value, 10);
+    if (hour === 24) hour = 0;
+    return { weekday, hour };
+  }
+
+  function checkLive(){
+    let liveMarket = null;
+    MARKETS.forEach(m => {
+      const { weekday, hour } = getLocal(m.tz);
+      if (weekday === m.day && hour >= m.start && hour < m.end) liveMarket = m;
+    });
+
+    const liveBtn = document.getElementById('listen-live-btn');
+    const liveLabel = document.getElementById('listen-live-label');
+    const livePing = document.getElementById('listen-live-ping');
+    const liveDot = document.getElementById('listen-live-dot');
+    if (liveMarket) {
+      liveBtn.classList.remove('is-off-air');
+      liveBtn.href = liveMarket.stream;
+      liveBtn.target = '_blank';
+      liveBtn.rel = 'noopener';
+      liveLabel.textContent = `live on ${liveMarket.station}`;
+      livePing.classList.remove('hidden');
+      liveDot.classList.remove('bg-[#6b6b6b]');
+      liveDot.classList.add('bg-red-600');
+    } else {
+      liveBtn.classList.add('is-off-air');
+      liveBtn.removeAttribute('target');
+      liveBtn.removeAttribute('rel');
+      liveBtn.href = '../index.html#live-radio';
+      liveLabel.textContent = 'off air';
+      livePing.classList.add('hidden');
+      liveDot.classList.remove('bg-red-600');
+      liveDot.classList.add('bg-[#6b6b6b]');
+    }
+  }
+  checkLive();
+  setInterval(checkLive, 60000);
+
+  // ---- gentle 3D tilt on cards (mouse users only, respects reduced-motion) ----
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canHover && !reduceMotion) {
+    document.querySelectorAll('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${py * -3}deg) rotateY(${px * 3}deg)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+</script>
+</body>
+</html>

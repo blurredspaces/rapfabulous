@@ -98,6 +98,19 @@
   .nav-link:hover::after{ width:100%; }
   .nav-link:focus-visible{ outline:2px solid var(--paper); outline-offset:4px; border-radius:2px; }
 
+  .radio-drop{ position:relative; }
+  .radio-drop-panel{
+    position:absolute; left:50%; top:100%; transform:translate(-50%,4px);
+    padding-top:.75rem; opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .2s cubic-bezier(.16,1,.3,1), transform .2s cubic-bezier(.16,1,.3,1), visibility .2s;
+  }
+  .radio-drop:hover .radio-drop-panel,
+  .radio-drop:focus-within .radio-drop-panel{
+    opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+  }
+  .radio-drop:hover .radio-drop-chevron{ transform:rotate(180deg); }
+  .radio-drop-chevron{ transition:transform .2s; }
+
   .photo-treat{ filter: grayscale(1) contrast(1.45) brightness(.62); transform: scale(1.55); transform-origin: 50% 22%; }
   .video-treat{ filter: grayscale(.45) contrast(1.2) brightness(.78) saturate(1.1); }
 
@@ -167,8 +180,18 @@
     <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Primary">
       <a href="#top" class="nav-link">.home</a>
       <a href="#convos" class="nav-link">.videos</a>
-      <a href="#live-radio" class="nav-link">.live radio</a>
-      <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="nav-link">.past shows</a>
+      <div class="radio-drop">
+        <button type="button" class="nav-link flex items-center gap-1" aria-haspopup="true">
+          .radio
+          <svg class="radio-drop-chevron h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="radio-drop-panel">
+          <div class="card-surface rounded-xl overflow-hidden border border-white/10 min-w-[168px]">
+            <a href="#live-radio" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors">.live radio</a>
+            <a href="shows/" class="block px-4 py-3 text-sm font-semibold hover:bg-white/5 transition-colors border-t border-white/[.06]">.replay radio</a>
+          </div>
+        </div>
+      </div>
       <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">.stories</a>
     </nav>
 
@@ -208,7 +231,7 @@
     <a href="#top" data-menu-link class="font-display text-4xl">.home</a>
     <a href="#convos" data-menu-link class="font-display text-4xl">.videos</a>
     <a href="#live-radio" data-menu-link class="font-display text-4xl">.live radio</a>
-    <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" data-menu-link class="font-display text-4xl">.past shows</a>
+    <a href="shows/" data-menu-link class="font-display text-4xl">.replay radio</a>
     <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" data-menu-link class="font-display text-4xl">.stories</a>
 
     <div class="flex items-center gap-5 mt-6">
@@ -394,7 +417,7 @@
           <li><a href="#top" class="nav-link">Home</a></li>
           <li><a href="#convos" class="nav-link">Videos</a></li>
           <li><a href="#live-radio" class="nav-link">Live Radio</a></li>
-          <li><a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="nav-link">Past Shows</a></li>
+          <li><a href="shows/" class="nav-link">Replay Radio</a></li>
           <li><a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">Stories</a></li>
         </ul>
       </div>
