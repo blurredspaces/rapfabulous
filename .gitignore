@@ -10,8 +10,8 @@ assets/photos/Mic Solo Approved Photo - 1000x1000.jpg
 assets/graphics/
 
 # derived build artifact — regenerate with:
-# cd wp-theme && zip -rq rapfabulous-theme.zip rapfabulous -x "**/.DS_Store"
-wp-theme/rapfabulous-theme.zip
+# cd wp-theme && zip -rq rapfabulous-theme-vX.Y.zip rapfabulous -x "**/.DS_Store"
+wp-theme/rapfabulous-theme*.zip
 
 # design-review mockups with sample data — not shipped theme code
 wp-theme/preview-*.html
