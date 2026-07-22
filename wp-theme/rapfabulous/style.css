@@ -229,6 +229,23 @@ body{
 .rule-check{ color:var(--red); flex-shrink:0; }
 
 /* ==========================================================================
+   Story List — category filter pills
+   ========================================================================== */
+.story-filter-btn{
+  display:inline-flex; align-items:center;
+  padding:.55rem 1.1rem; border-radius:999px;
+  font-size:.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  border:1.5px solid rgba(244,239,231,.25); color:rgba(244,239,231,.65); background:transparent;
+  transition: border-color .25s, color .25s, background-color .25s;
+}
+.story-filter-btn:hover{ border-color:rgba(244,239,231,.5); color:var(--paper); }
+.story-filter-btn.is-active{
+  border-color:transparent; color:var(--paper);
+  background:linear-gradient(115deg,var(--red) 0%,#9B1F5C 52%,var(--purple) 100%);
+}
+.story-filter-btn:focus-visible{ outline:2px solid var(--paper); outline-offset:2px; }
+
+/* ==========================================================================
    Article prose (single.php — the_content())
    ========================================================================== */
 .prose{ font-size:1.15rem; line-height:1.85; color:rgba(244,239,231,.86); }

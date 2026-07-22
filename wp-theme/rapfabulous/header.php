@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">.stories</a>
+      <a href="<?php echo esc_url(home_url('/story-list/')); ?>" class="nav-link<?php echo is_page_template('page-story-list.php') ? ' grad-text' : ''; ?>">.stories</a>
       <a href="<?php echo esc_url(home_url('/about/')); ?>" class="nav-link<?php echo is_page_template('page-about.php') ? ' grad-text' : ''; ?>">.about</a>
     </nav>
 
@@ -86,7 +86,7 @@
     <a href="<?php echo esc_url(home_url('/#convos')); ?>" data-menu-link class="font-display text-4xl">.videos</a>
     <a href="<?php echo esc_url(home_url('/#live-radio')); ?>" data-menu-link class="font-display text-4xl">.live radio</a>
     <a href="<?php echo esc_url(home_url('/shows/')); ?>" data-menu-link class="font-display text-4xl">.replay radio</a>
-    <a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" data-menu-link class="font-display text-4xl">.stories</a>
+    <a href="<?php echo esc_url(home_url('/story-list/')); ?>" data-menu-link class="font-display text-4xl">.stories</a>
     <a href="<?php echo esc_url(home_url('/about/')); ?>" data-menu-link class="font-display text-4xl">.about</a>
 
     <div class="flex items-center gap-5 mt-6">

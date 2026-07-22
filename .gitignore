@@ -13,4 +13,7 @@ assets/graphics/
 # cd wp-theme && zip -rq rapfabulous-theme.zip rapfabulous -x "**/.DS_Store"
 wp-theme/rapfabulous-theme.zip
 
+# design-review mockups with sample data — not shipped theme code
+wp-theme/preview-*.html
+
 .DS_Store

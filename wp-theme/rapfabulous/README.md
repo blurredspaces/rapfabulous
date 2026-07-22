@@ -28,14 +28,23 @@ these paths directly:
 | Affiliate Demo | `demo` | Affiliate Demo |
 | CONVOS Takeover Info | `convos` | CONVOS Takeover Info |
 | DJ Mix Weekends | `djmix` | DJ Mix Weekends |
+| Story List | `story-list` | Story List |
 
-The content on all five is hardcoded in the template file (matching how the static
-site worked) — edit the copy by editing the template's PHP/HTML directly, not through
-the block editor. The page's own editor content is unused; the page just exists so
-WordPress has a slug + template to route through.
+The content on the first five is hardcoded in the template file (matching how the
+static site worked) — edit the copy by editing the template's PHP/HTML directly, not
+through the block editor. The page's own editor content is unused; the page just
+exists so WordPress has a slug + template to route through.
 
 Demo, CONVOS, and DJ Mix Weekends automatically get `noindex, nofollow` (handled in
 `functions.php`) — they're not meant to show up in search, same as before.
+
+**Story List** is different — it isn't hardcoded. It queries real WordPress **Posts**
+tagged with any of four Categories (Posts → Categories): `CONVOS`, `News`,
+`Music`, `Press Release`. Assign one of those categories to a post and it
+automatically appears on this page, newest first, with filter pills at the top and a
+featured image + title + date card that links straight to the full post
+(`single.php`). No posts tagged yet → the page shows a friendly empty state instead
+of looking broken.
 
 ## Adding content that's meant to be edited without touching code
 

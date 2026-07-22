@@ -32,14 +32,6 @@ $convos_posts = $convos_query->posts;
     <div class="noise"></div>
     <div id="hero-spotlight" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700"></div>
 
-    <!-- left stack -->
-    <div class="hero-in absolute left-4 md:left-10 top-6 md:top-10 flex flex-col gap-1.5 md:gap-2 text-xs md:text-sm font-semibold tracking-wide text-white/85" style="animation-delay:.15s">
-      <a href="#convos" class="nav-link w-fit">.watch convos</a>
-      <a href="#live-radio" class="nav-link w-fit">.listen live</a>
-      <a href="https://open.spotify.com/show/7l9Wg0S3K77rOPGTqvmEMg?si=aab55c509c6445ad" target="_blank" rel="noopener" class="nav-link w-fit">.spotify</a>
-      <a href="mailto:connect@rapfabulous.com" class="nav-link w-fit">.connect</a>
-    </div>
-
     <!-- watch badge -->
     <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener"
       class="hero-in-fade group absolute right-8 md:right-16 top-[38%] md:top-1/2 -translate-y-1/2 h-24 w-24 md:h-32 md:w-32 rounded-full grad-bg shadow-glow flex items-center justify-center" style="animation-delay:.3s">

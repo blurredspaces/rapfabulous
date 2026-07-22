@@ -28,7 +28,7 @@
           <li><a href="<?php echo esc_url(home_url('/#convos')); ?>" class="nav-link">Videos</a></li>
           <li><a href="<?php echo esc_url(home_url('/#live-radio')); ?>" class="nav-link">Live Radio</a></li>
           <li><a href="<?php echo esc_url(home_url('/shows/')); ?>" class="nav-link">Replay Radio</a></li>
-          <li><a href="https://www.instagram.com/rapfabulous/" target="_blank" rel="noopener" class="nav-link">Stories</a></li>
+          <li><a href="<?php echo esc_url(home_url('/story-list/')); ?>" class="nav-link">Stories</a></li>
           <li><a href="<?php echo esc_url(home_url('/about/')); ?>" class="nav-link">About</a></li>
         </ul>
       </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="mt-12 md:mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#F4EFE7]/40">
-      <p>&copy; <?php echo esc_html(date('Y')); ?> BLURRED SPACES. All rights reserved.</p>
+      <p>&copy; <?php echo esc_html(date('Y')); ?> <a href="https://blurredspaces.com/" target="_blank" rel="noopener" class="hover:text-[#F4EFE7]/70 transition-colors">BLURRED SPACES</a>. All rights reserved.</p>
       <p>rapfabulous&reg; &middot; Where hip-hop celebrates the music, the culture, and you.</p>
     </div>
   </div>

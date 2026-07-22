@@ -42,8 +42,18 @@ $theme_uri = get_template_directory_uri();
     </div>
   </div>
 
-  <!-- featured video -->
+  <!-- example episode -->
   <p class="mt-12 md:mt-14 font-bold text-sm tracking-widest uppercase mb-4 grad-text">example episode</p>
+
+  <!-- mixcloud radio takeover -->
+  <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">radio takeover</p>
+  <h2 class="font-display text-3xl md:text-4xl mb-6">listen to the radio show.</h2>
+  <div class="card-surface rounded-2xl p-3 md:p-4">
+    <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;light=1&amp;feed=%2Frapfabulous%2Fep-65-buckshot-convos-takeover%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="rounded-lg"></iframe>
+  </div>
+
+  <!-- featured video -->
+  <h2 class="mt-14 md:mt-20 font-display text-3xl md:text-4xl mb-6">watch CONVOS episode.</h2>
   <div class="yt-embed tilt-card group relative rounded-2xl overflow-hidden shadow-glow border border-white/10 bg-black"
     data-yt="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj"
     data-title="Buckshot CONVOS &mdash; Bucktown, Biggie &amp; 2Pac, KRS-One">
@@ -63,15 +73,6 @@ $theme_uri = get_template_directory_uri();
   <div class="mt-6 flex flex-wrap gap-3 md:gap-4">
     <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener" class="btn btn-dark">watch on youtube</a>
     <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="btn btn-outline">see all episodes</a>
-  </div>
-
-  <!-- mixcloud radio takeover -->
-  <div class="mt-14 md:mt-20">
-    <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">radio takeover</p>
-    <h2 class="font-display text-3xl md:text-4xl mb-6">listen to the episode.</h2>
-    <div class="card-surface rounded-2xl p-3 md:p-4">
-      <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;light=1&amp;feed=%2Frapfabulous%2Fep-65-buckshot-convos-takeover%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="rounded-lg"></iframe>
-    </div>
   </div>
 
 </main>
