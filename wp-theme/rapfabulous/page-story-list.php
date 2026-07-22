@@ -27,28 +27,33 @@ $stories_query = new WP_Query(array(
 ));
 ?>
 
-<!-- ============ HEADER ============ -->
-<section class="relative bg-[#0A0A0A] pt-28 md:pt-40 pb-10 md:pb-14">
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
-    <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">.story list</p>
-    <h1 class="font-display text-[11vw] leading-[0.95] sm:text-5xl md:text-6xl">All Stories.</h1>
-    <p class="mt-6 max-w-2xl text-sm md:text-base font-medium text-[#F4EFE7]/75">
-      CONVOS interviews, editorial, music features, and press &mdash; everything rapfabulous has published, in one place.
+<!-- ============ HERO ============ -->
+<section id="story-hero" class="relative pt-32 md:pt-44 pb-14 md:pb-20 grad-bg overflow-hidden">
+  <div class="noise"></div>
+  <div id="story-hero-glow" class="absolute -inset-1 opacity-0 transition-opacity duration-700 pointer-events-none" aria-hidden="true">
+    <div id="story-hero-glow-inner" class="absolute h-[520px] w-[520px] rounded-full transition-transform duration-300 ease-out" style="background: radial-gradient(circle, rgba(244,239,231,.28), transparent 70%); mix-blend-mode: overlay; transform: translate(-9999px,-9999px);"></div>
+  </div>
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 relative">
+    <p class="font-bold text-sm tracking-widest uppercase mb-4 text-[#0A0A0A]/70">.story list</p>
+    <h1 class="font-display text-[13vw] leading-[0.92] sm:text-6xl md:text-7xl text-[#0A0A0A]">All Stories.</h1>
+    <p class="mt-6 max-w-xl text-base md:text-lg font-medium text-[#0A0A0A]/75">
+      CONVOS interviews, news, music features, and press &mdash; everything rapfabulous has published, in one place.
     </p>
+  </div>
+</section>
+
+<!-- ============ GRID ============ -->
+<section class="relative bg-[#0A0A0A] py-14 md:py-20">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
 
     <!-- filter pills -->
-    <div class="mt-8 md:mt-10 flex flex-wrap gap-2.5" id="story-filters">
+    <div class="mb-10 md:mb-14 flex flex-wrap gap-2.5" id="story-filters">
       <button type="button" class="story-filter-btn is-active" data-filter="all">All</button>
       <?php foreach ($story_categories as $cat) : ?>
         <button type="button" class="story-filter-btn" data-filter="<?php echo esc_attr($cat['slug']); ?>"><?php echo esc_html($cat['label']); ?></button>
       <?php endforeach; ?>
     </div>
-  </div>
-</section>
 
-<!-- ============ GRID ============ -->
-<section class="relative bg-[#0A0A0A] pb-16 md:pb-24">
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <?php if ($stories_query->have_posts()) : ?>
     <div id="story-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <?php while ($stories_query->have_posts()) : $stories_query->the_post();
@@ -76,7 +81,7 @@ $stories_query = new WP_Query(array(
     </div>
     <p id="story-empty" class="hidden text-[#F4EFE7]/60 mt-4">Nothing tagged this way yet.</p>
     <?php else : ?>
-    <p class="text-[#F4EFE7]/60">No stories published yet. Tag a post with CONVOS, Editorial, Music, or Press Release to see it here.</p>
+    <p class="text-[#F4EFE7]/60">No stories published yet. Tag a post with CONVOS, News, Music, or Press Release to see it here.</p>
     <?php endif; ?>
   </div>
 </section>
@@ -103,6 +108,27 @@ $stories_query = new WP_Query(array(
         if (empty) empty.classList.toggle('hidden', visibleCount > 0);
       });
     });
+  })();
+
+  // ---- cursor glow on the hero gradient (mouse users only, respects reduced-motion) ----
+  (function(){
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover || reduceMotion) return;
+
+    const hero = document.getElementById('story-hero');
+    const glow = document.getElementById('story-hero-glow');
+    const glowInner = document.getElementById('story-hero-glow-inner');
+    if (!hero || !glow || !glowInner) return;
+
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      glowInner.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      glow.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
   })();
 </script>
 

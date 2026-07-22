@@ -13,8 +13,11 @@ $episodes_query = new WP_Query(array(
 ?>
 
 <!-- ============ HERO ============ -->
-<section class="relative pt-32 md:pt-44 pb-14 md:pb-20 grad-bg overflow-hidden">
+<section id="shows-hero" class="relative pt-32 md:pt-44 pb-14 md:pb-20 grad-bg overflow-hidden">
   <div class="noise"></div>
+  <div id="shows-hero-glow" class="absolute -inset-1 opacity-0 transition-opacity duration-700 pointer-events-none" aria-hidden="true">
+    <div id="shows-hero-glow-inner" class="absolute h-[520px] w-[520px] rounded-full transition-transform duration-300 ease-out" style="background: radial-gradient(circle, rgba(244,239,231,.28), transparent 70%); mix-blend-mode: overlay; transform: translate(-9999px,-9999px);"></div>
+  </div>
   <div class="max-w-[1100px] mx-auto px-5 md:px-10 relative">
     <p class="font-bold text-sm tracking-widest uppercase mb-4 text-[#0A0A0A]/70">.replay radio</p>
     <h1 class="font-display text-[13vw] leading-[0.92] sm:text-6xl md:text-7xl text-[#0A0A0A]">Replay Radio.</h1>
@@ -74,5 +77,28 @@ $episodes_query = new WP_Query(array(
     </div>
   </div>
 </section>
+
+<script>
+  // ---- cursor glow on the hero gradient (mouse users only, respects reduced-motion) ----
+  (function(){
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover || reduceMotion) return;
+
+    const hero = document.getElementById('shows-hero');
+    const glow = document.getElementById('shows-hero-glow');
+    const glowInner = document.getElementById('shows-hero-glow-inner');
+    if (!hero || !glow || !glowInner) return;
+
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      glowInner.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      glow.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+  })();
+</script>
 
 <?php get_footer(); ?>

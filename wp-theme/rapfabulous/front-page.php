@@ -60,8 +60,11 @@ $convos_posts = $convos_query->posts;
 </section>
 
 <!-- ============ LATEST CONVOS / YOUTUBE ============ -->
-<section id="convos" class="relative grad-bg text-[#0A0A0A]">
+<section id="convos" class="relative grad-bg text-[#0A0A0A] overflow-hidden">
   <div class="noise"></div>
+  <div id="convos-glow" class="absolute -inset-1 opacity-0 transition-opacity duration-700 pointer-events-none" aria-hidden="true">
+    <div id="convos-glow-inner" class="absolute h-[520px] w-[520px] rounded-full transition-transform duration-300 ease-out" style="background: radial-gradient(circle, rgba(244,239,231,.28), transparent 70%); mix-blend-mode: overlay; transform: translate(-9999px,-9999px);"></div>
+  </div>
   <div class="max-w-[1600px] mx-auto px-5 md:px-10 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-[1.1fr_1.4fr] gap-10 md:gap-14 items-start">
 
     <div>
@@ -209,6 +212,20 @@ $convos_posts = $convos_query->posts;
       wordmark.style.transform = `translate(${relX * -14}px, ${relY * -8}px)`;
     });
     brandDivider.addEventListener('mouseleave', () => { wordmark.style.transform = ''; });
+
+    const convosSection = document.getElementById('convos');
+    const convosGlow = document.getElementById('convos-glow');
+    const convosGlowInner = document.getElementById('convos-glow-inner');
+    if (convosSection && convosGlow && convosGlowInner) {
+      convosSection.addEventListener('mousemove', (e) => {
+        const r = convosSection.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        convosGlowInner.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        convosGlow.style.opacity = '1';
+      });
+      convosSection.addEventListener('mouseleave', () => { convosGlow.style.opacity = '0'; });
+    }
   }
 </script>
 
