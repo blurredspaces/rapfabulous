@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>rapfabulous — Affiliate Demo &amp; Info</title>
+<meta name="description" content="Listen to the rapfabulous radio demo, download the presentation deck, press release and bio, and hear previous full episodes." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="../assets/brand/favicon.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#CC3300;
+    --purple:#6600CC;
+    --ink:#0A0A0A;
+    --surface:#141414;
+    --surface-2:#1C1C1C;
+    --paper:#F4EFE7;
+  }
+  *{ -webkit-tap-highlight-color: transparent; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.7;
+  }
+  .font-display{
+    font-family:'Archivo Black','Inter',sans-serif;
+    letter-spacing:-0.03em;
+    line-height:0.92;
+  }
+  .grad-text{
+    background:linear-gradient(100deg,var(--red) 0%,#9B1F5C 50%,var(--purple) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .grad-bg{ background:linear-gradient(115deg,var(--red) 0%,#9B1F5C 52%,var(--purple) 100%); }
+
+  .noise{
+    position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .shadow-glow{ box-shadow: 0 20px 60px -15px rgba(204,51,0,.35), 0 8px 30px -10px rgba(102,0,204,.35); }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:.9rem 1.7rem; border-radius:999px; font-weight:700; font-size:.85rem;
+    letter-spacing:.02em;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s cubic-bezier(.16,1,.3,1), background-color .35s, border-color .35s;
+  }
+  .btn:hover{ transform: translateY(-2px) scale(1.015); }
+  .btn:active{ transform: translateY(0) scale(0.98); }
+  .btn-dark{ background:var(--paper); color:var(--ink); }
+  .btn-dark:hover{ box-shadow: 0 14px 30px -10px rgba(244,239,231,.3); }
+  .btn-outline{ border:1.5px solid rgba(244,239,231,.35); color:var(--paper); }
+  .btn-outline:hover{ border-color:var(--paper); background:rgba(244,239,231,.06); }
+  .btn:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+
+  .card-surface{
+    background:var(--surface);
+    box-shadow: 0 1px 0 rgba(244,239,231,.06) inset, 0 18px 40px -20px rgba(0,0,0,.6);
+  }
+  .mix-frame{ border-radius:14px; overflow:hidden; background:#000; }
+
+  /* demo audio player */
+  #demo-play{ transition: transform .3s cubic-bezier(.16,1,.3,1); }
+  #demo-play:hover{ transform: scale(1.06); }
+  #demo-play:active{ transform: scale(0.96); }
+  #demo-progress-track{ touch-action:none; }
+  #demo-progress-fill{ transition: width .1s linear; }
+  #demo-progress-handle{ transition: left .1s linear, transform .2s cubic-bezier(.16,1,.3,1); }
+  #demo-progress-track:hover #demo-progress-handle{ transform: translate(-50%,-50%) scale(1.3); }
+
+  ::selection{ background:var(--red); color:var(--paper); }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<header class="border-b border-white/[.06]">
+  <div class="max-w-[1000px] mx-auto px-5 md:px-10 h-16 md:h-20 flex items-center justify-between">
+    <a href="https://rapfabulous.com/" class="flex items-center gap-2.5" aria-label="rapfabulous home">
+      <img src="../assets/brand/r-mark-gradient.png" alt="" class="h-7 md:h-8 w-auto" />
+      <span class="font-display text-lg md:text-xl tracking-tight">rapfabulous<sup class="text-[9px] align-super">®</sup></span>
+    </a>
+    <span class="text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/40">Affiliate Demo</span>
+  </div>
+</header>
+
+<main class="max-w-[1000px] mx-auto px-5 md:px-10 py-14 md:py-20">
+
+  <p class="font-bold text-sm tracking-widest uppercase mb-4 grad-text">for radio affiliates</p>
+  <h1 class="font-display text-[11vw] leading-[0.95] sm:text-5xl md:text-6xl">rapfabulous<br/>Radio Demo</h1>
+
+  <p class="mt-6 max-w-2xl text-sm md:text-base font-medium text-[#F4EFE7]/75">
+    "Where Hip Hop Celebrates The Music, The Culture, and You" is a nationally syndicated 2-hour weekend hip-hop radio show and video interview series dedicated to celebrating our hip-hop artists and music from the late 1980s to 2010s. Hosted by Mic Fox and guest.
+  </p>
+
+  <!-- host photo -->
+  <div class="mt-10 md:mt-12 max-w-xl rounded-2xl overflow-hidden shadow-glow border border-white/10">
+    <img src="../assets/photos/mic-fox-about.jpg" alt="Mic Fox, host of rapfabulous"
+      class="w-full h-full object-cover grayscale contrast-110" />
+  </div>
+
+  <!-- audio demo player -->
+  <div class="mt-6 md:mt-8 max-w-xl">
+    <div class="card-surface rounded-2xl overflow-hidden border border-white/10 shadow-glow">
+      <div class="grad-bg p-6 md:p-7">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4 min-w-0">
+            <img src="../assets/brand/r-mark-gradient.png" alt="" class="h-11 w-11 md:h-13 md:w-13 rounded-full bg-white/95 p-2 shrink-0" />
+            <div class="min-w-0">
+              <p class="text-xs font-bold tracking-widest uppercase text-white/70">rapfabulous</p>
+              <p class="font-display text-xl md:text-2xl text-white truncate">Radio Demo</p>
+            </div>
+          </div>
+          <button id="demo-play" type="button" aria-label="Play demo" class="h-14 w-14 md:h-16 md:w-16 rounded-full bg-white/95 flex items-center justify-center shrink-0">
+            <svg id="demo-play-icon" class="h-6 w-6 md:h-7 md:w-7 text-[#0A0A0A] translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            <svg id="demo-pause-icon" class="hidden h-6 w-6 md:h-7 md:w-7 text-[#0A0A0A]" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="p-5 md:p-6">
+        <div id="demo-progress-track" class="relative h-1.5 rounded-full bg-white/10 cursor-pointer">
+          <div id="demo-progress-fill" class="absolute inset-y-0 left-0 rounded-full grad-bg" style="width:0%"></div>
+          <div id="demo-progress-handle" class="absolute top-1/2 h-3.5 w-3.5 rounded-full bg-[#F4EFE7] shadow -translate-y-1/2 -translate-x-1/2" style="left:0%"></div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs font-semibold text-[#F4EFE7]/50">
+          <span id="demo-current-time">0:00</span>
+          <span id="demo-duration">0:00</span>
+        </div>
+      </div>
+    </div>
+    <audio id="demo-audio" preload="metadata" src="../assets/audio/rapfabulous-demo.mp3"></audio>
+  </div>
+
+  <!-- past radio episodes -->
+  <div class="mt-6 md:mt-8 max-w-xl grid grid-cols-1 gap-5">
+
+    <div class="card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+        <p class="font-display text-xl md:text-2xl">DJ Mix Weekend — 1 Year Anniversary</p>
+        <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 55</span>
+      </div>
+      <div class="mix-frame">
+        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Frapfabulous%2Fep55-dj-mix-weekend-rapfabulous-1-year-anniversary%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+      </div>
+    </div>
+
+    <div class="card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+        <p class="font-display text-xl md:text-2xl">Just Blaze Takeover</p>
+        <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 30</span>
+      </div>
+      <div class="mix-frame">
+        <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Frapfabulous%2Fep-30-just-blaze-takeover%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- resources -->
+  <div class="mt-10 md:mt-12 flex flex-wrap gap-3 md:gap-4">
+    <a href="../assets/docs/rapfabulous-the-brand-deck.pdf" target="_blank" rel="noopener" class="btn btn-dark">presentation deck</a>
+    <a href="../shows/" class="btn btn-outline">previous full radio shows</a>
+    <a href="../assets/docs/press-release-09-2025.pdf" target="_blank" rel="noopener" class="btn btn-outline">download press release</a>
+    <a href="../assets/docs/mic-bios-rapfabulous.pdf" target="_blank" rel="noopener" class="btn btn-outline">download bio</a>
+  </div>
+
+</main>
+
+<footer class="border-t border-white/10 mt-10">
+  <div class="max-w-[1000px] mx-auto px-5 md:px-10 py-8 flex flex-col sm:flex-row justify-between gap-2 text-xs text-[#F4EFE7]/40">
+    <p>© 2026 BLURRED SPACES. All rights reserved.</p>
+    <a href="mailto:connect@rapfabulous.com" class="hover:text-[#F4EFE7]/70 transition-colors">connect@rapfabulous.com</a>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const audio = document.getElementById('demo-audio');
+    const playBtn = document.getElementById('demo-play');
+    const playIcon = document.getElementById('demo-play-icon');
+    const pauseIcon = document.getElementById('demo-pause-icon');
+    const track = document.getElementById('demo-progress-track');
+    const fill = document.getElementById('demo-progress-fill');
+    const handle = document.getElementById('demo-progress-handle');
+    const curEl = document.getElementById('demo-current-time');
+    const durEl = document.getElementById('demo-duration');
+
+    function fmt(s){
+      if (!isFinite(s) || s < 0) return '0:00';
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + String(sec).padStart(2, '0');
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) audio.play(); else audio.pause();
+    });
+    audio.addEventListener('play', () => {
+      playIcon.classList.add('hidden');
+      pauseIcon.classList.remove('hidden');
+    });
+    audio.addEventListener('pause', () => {
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+    });
+    audio.addEventListener('ended', () => {
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+    });
+    audio.addEventListener('loadedmetadata', () => {
+      durEl.textContent = fmt(audio.duration);
+    });
+    audio.addEventListener('timeupdate', () => {
+      const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+      fill.style.width = pct + '%';
+      handle.style.left = pct + '%';
+      curEl.textContent = fmt(audio.currentTime);
+    });
+
+    function seek(e){
+      const r = track.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const pct = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      if (audio.duration) audio.currentTime = pct * audio.duration;
+    }
+    track.addEventListener('click', seek);
+  })();
+</script>
+</body>
+</html>
