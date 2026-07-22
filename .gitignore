@@ -9,4 +9,8 @@ assets/photos/Mic Solo Approved Photo - 1000x1000.jpg
 # source clock graphics — rebuilt natively in djmix/, JPEGs kept locally only
 assets/graphics/
 
+# derived build artifact — regenerate with:
+# cd wp-theme && zip -rq rapfabulous-theme.zip rapfabulous -x "**/.DS_Store"
+wp-theme/rapfabulous-theme.zip
+
 .DS_Store
