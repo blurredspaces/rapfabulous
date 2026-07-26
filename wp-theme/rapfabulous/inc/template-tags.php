@@ -9,12 +9,12 @@ defined('ABSPATH') || exit;
 function rf_markets() {
     return array(
         array('city' => 'New York, NY',      'station' => '94.7 The Block', 'day' => 'Sun', 'start' => 17, 'end' => 19, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/947theblocknyc'),
-        array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat'),
         array('city' => 'Orlando, FL',       'station' => '102 JAM',        'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/102jamzorlando'),
         array('city' => 'San Francisco, CA', 'station' => '102 JAMS',       'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/Los_Angeles', 'stream' => 'https://www.audacy.com/stations/102jamssf'),
         array('city' => 'Pittsburgh, PA',    'station' => '107.3 WAMO',     'day' => 'Sat', 'start' => 19, 'end' => 21, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/wamo1073'),
         array('city' => 'St. Louis, MO',     'station' => '96.3 R&B',       'day' => 'Sat', 'start' => 22, 'end' => 24, 'tz' => 'America/Chicago',     'stream' => 'https://www.audacy.com/stations/963rnb'),
         array('city' => 'Knoxville, TN',     'station' => 'JUMP 97.1',      'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.jumpradio.com/knoxville/player/'),
+        array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat'),
         array('city' => 'Greensboro, NC',    'station' => '97.1 QMG',       'comingSoon' => true),
     );
 }
