@@ -75,6 +75,21 @@ $theme_uri = get_template_directory_uri();
     <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="btn btn-outline">see all episodes</a>
   </div>
 
+  <!-- where it airs -->
+  <div class="mt-14 md:mt-20">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">where it airs</p>
+    <h2 class="font-display text-3xl md:text-4xl mb-6">Currently on.</h2>
+    <div class="flex flex-wrap gap-3">
+      <?php foreach (rf_markets() as $m) : ?>
+        <?php if (!empty($m['comingSoon'])) : ?>
+          <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold text-[#F4EFE7]/55"><?php echo esc_html($m['station']); ?> &middot; <?php echo esc_html($m['city']); ?> <span class="grad-text">&middot; soon</span></span>
+        <?php else : ?>
+          <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold"><?php echo esc_html($m['station']); ?> &middot; <?php echo esc_html($m['city']); ?></span>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
+
 </main>
 
 <?php get_footer('minimal'); ?>

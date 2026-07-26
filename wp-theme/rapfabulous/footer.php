@@ -119,7 +119,13 @@
             <p class="font-display text-lg leading-tight">${m.city}</p>
             <p class="text-sm text-[#F4EFE7]/60 mt-1">${m.station}</p>
           </div>
-          <span class="live-pill hidden shrink-0 text-[10px] font-bold tracking-wide grad-bg text-[#0A0A0A] px-2.5 py-1 rounded-full">LIVE</span>
+          <span class="live-pill on-air-pulse-btn shrink-0 items-center gap-1.5 text-[10px] font-bold tracking-wide grad-bg text-[#0A0A0A] px-2.5 py-1 rounded-full" style="display:none">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-[#0A0A0A]"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0A0A0A]"></span>
+            </span>
+            LIVE
+          </span>
         </div>
         <div class="mt-5 flex items-center justify-between">
           <p class="text-sm font-semibold text-[#F4EFE7]/85">${m.day} &middot; ${period(m.start)}&ndash;${period(m.end)} ${tzLabel}</p>
@@ -152,13 +158,13 @@
     document.querySelectorAll('#schedule-grid [data-city]').forEach(card => {
       const m = MARKETS.find(x => x.city === card.dataset.city);
       const pill = card.querySelector('.live-pill');
-      if (pill) pill.classList.toggle('hidden', !m._live);
+      if (pill) pill.style.display = m._live ? 'inline-flex' : 'none';
     });
 
     const banner = document.getElementById('live-now-banner');
     if (banner) {
       if (liveMarket) {
-        document.getElementById('live-now-text').textContent = `rapfabulous is live now on ${liveMarket.station}, ${liveMarket.city}`;
+        document.getElementById('live-now-text').textContent = `rapfabulous is ON AIR on ${liveMarket.station}`;
         const link = document.getElementById('live-now-link');
         link.href = liveMarket.stream;
         link.target = '_blank';
@@ -172,26 +178,20 @@
     const liveBtn = document.getElementById('listen-live-btn');
     if (liveBtn) {
       const liveLabel = document.getElementById('listen-live-label');
-      const livePing = document.getElementById('listen-live-ping');
-      const liveDot = document.getElementById('listen-live-dot');
       if (liveMarket) {
         liveBtn.classList.remove('is-off-air');
+        liveBtn.classList.add('is-on-air');
         liveBtn.href = liveMarket.stream;
         liveBtn.target = '_blank';
         liveBtn.rel = 'noopener';
-        liveLabel.textContent = `live on ${liveMarket.station}`;
-        livePing.classList.remove('hidden');
-        liveDot.classList.remove('bg-[#6b6b6b]');
-        liveDot.classList.add('bg-red-600');
+        liveLabel.textContent = `on air on ${liveMarket.station}`;
       } else {
+        liveBtn.classList.remove('is-on-air');
         liveBtn.classList.add('is-off-air');
         liveBtn.removeAttribute('target');
         liveBtn.removeAttribute('rel');
         liveBtn.href = '<?php echo esc_url(home_url('/#live-radio')); ?>';
         liveLabel.textContent = 'off air';
-        livePing.classList.add('hidden');
-        liveDot.classList.remove('bg-red-600');
-        liveDot.classList.add('bg-[#6b6b6b]');
       }
     }
   }

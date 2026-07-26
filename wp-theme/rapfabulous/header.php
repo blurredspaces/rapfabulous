@@ -62,10 +62,6 @@
         </a>
       </div>
       <a id="listen-live-btn" href="<?php echo esc_url(home_url('/#live-radio')); ?>" class="btn btn-solid !py-2.5 !px-4 md:!px-5 shadow-glow-sm">
-        <span class="relative flex h-2 w-2">
-          <span id="listen-live-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-          <span id="listen-live-dot" class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-        </span>
         <span id="listen-live-label">off air</span>
       </a>
 
