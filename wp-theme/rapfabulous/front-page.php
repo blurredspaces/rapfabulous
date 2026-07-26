@@ -24,7 +24,7 @@ $convos_posts = $convos_query->posts;
   <!-- photo block -->
   <div id="hero-photo-block" class="relative w-full h-[62vh] md:h-[78vh] min-h-[420px] overflow-hidden">
     <video id="hero-video" muted loop playsinline preload="none" poster="<?php echo esc_url($theme_uri); ?>/assets/photos/mic-fox.jpg"
-      class="video-treat absolute inset-0 w-full h-full object-cover" style="object-position: 50% 30%;">
+      class="video-treat absolute inset-0 w-full h-full object-cover" style="object-position: 50% 42%;">
       <source src="<?php echo esc_url($theme_uri); ?>/assets/video/convos-teaser.mp4" type="video/mp4" />
     </video>
     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40"></div>
