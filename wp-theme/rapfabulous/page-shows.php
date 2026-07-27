@@ -40,6 +40,16 @@ $episodes_query = new WP_Query(array(
         <!-- Fallback launch episodes — replace by adding Replay Episode posts in wp-admin -->
         <div class="tilt-card card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
           <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+            <p class="font-display text-xl md:text-2xl">The Sample Series</p>
+            <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 67</span>
+          </div>
+          <div class="mix-frame">
+            <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;feed=%2Frapfabulous%2Fep-67-the-sample-series%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+          </div>
+        </div>
+
+        <div class="tilt-card card-surface rounded-2xl p-6 md:p-7 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1;">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
             <p class="font-display text-xl md:text-2xl">Buckshot CONVOS Takeover</p>
             <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 65</span>
           </div>

@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-define('RF_THEME_VERSION', '1.5');
+define('RF_THEME_VERSION', '1.6');
 
 require get_template_directory() . '/inc/post-types.php';
 require get_template_directory() . '/inc/meta-boxes.php';
