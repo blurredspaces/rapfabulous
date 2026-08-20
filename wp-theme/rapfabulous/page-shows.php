@@ -44,7 +44,7 @@ $episodes_query = new WP_Query(array(
             <span class="text-xs font-bold tracking-widest uppercase grad-text shrink-0">EP 67</span>
           </div>
           <div class="mix-frame">
-            <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;feed=%2Frapfabulous%2Fep-67-the-sample-series%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
+            <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;feed=%2Frapfabulous%2Fep67-the-sample-series-1%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" class="block"></iframe>
           </div>
         </div>
 

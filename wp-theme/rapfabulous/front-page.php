@@ -145,7 +145,7 @@ $convos_posts = $convos_query->posts;
         <h2 class="font-display text-[12vw] md:text-[4vw] leading-[0.92]">listen live.</h2>
       </div>
       <div class="flex items-end gap-4 md:gap-5 shrink-0">
-        <p class="font-display text-6xl md:text-7xl grad-text leading-none">8</p>
+        <p class="font-display text-6xl md:text-7xl grad-text leading-none">9</p>
         <p class="max-w-[11rem] text-xs md:text-sm text-[#F4EFE7]/70 font-medium pb-1">markets nationwide, 2 hours every weekend, and counting.</p>
       </div>
     </div>

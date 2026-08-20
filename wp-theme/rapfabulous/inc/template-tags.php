@@ -16,6 +16,7 @@ function rf_markets() {
         array('city' => 'Knoxville, TN',     'station' => 'JUMP 97.1',      'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.jumpradio.com/knoxville/player/'),
         array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat'),
         array('city' => 'Greensboro, NC',    'station' => '97.1 QMG',       'comingSoon' => true),
+        array('city' => 'Lawton, OK',         'station' => 'Heart & Soul 96.7/1380', 'day' => 'Sun', 'start' => 12, 'end' => 14, 'tz' => 'America/Chicago', 'stream' => 'https://www.iheart.com/live/heart-soul-967-1380-8406/', 'comingSoon' => true, 'premiere' => 'Sept 6'),
     );
 }
 

@@ -96,6 +96,8 @@
       const tzLabel = m.tz === "America/New_York" ? "ET" : m.tz === "America/Chicago" ? "CT" : "PT";
 
       if (m.comingSoon) {
+        const scheduleLine = m.day ? `${m.day} &middot; ${period(m.start)}&ndash;${period(m.end)} ${tzLabel}` : 'Coming Soon';
+        const noteLine = m.premiere ? `premieres ${m.premiere}` : 'stay tuned';
         return `
         <div class="card-reveal tilt-card card-surface rounded-2xl p-6 transition-colors duration-300 border-l-2" style="border-image: linear-gradient(180deg, var(--red), var(--purple)) 1; transition-delay:${i * 70}ms" data-city="${m.city}">
           <div class="flex items-start justify-between gap-3">
@@ -106,8 +108,8 @@
             <span class="shrink-0 text-[10px] font-bold tracking-wide bg-white/10 text-[#F4EFE7]/70 px-2.5 py-1 rounded-full">SOON</span>
           </div>
           <div class="mt-5 flex items-center justify-between">
-            <p class="text-sm font-semibold text-[#F4EFE7]/85">Coming Soon</p>
-            <span class="text-xs font-bold text-[#F4EFE7]/30">stay tuned</span>
+            <p class="text-sm font-semibold text-[#F4EFE7]/85">${scheduleLine}</p>
+            <span class="text-xs font-bold text-[#F4EFE7]/30">${noteLine}</span>
           </div>
         </div>`;
       }
