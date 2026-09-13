@@ -83,9 +83,62 @@ $ep30 = rf_get_episode_by_label('EP 30');
     <?php endif; ?>
   </div>
 
+  <!-- reach snapshot -->
+  <div class="mt-10 md:mt-12">
+    <p class="font-bold text-sm tracking-widest uppercase mb-6 grad-text">reach snapshot</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+      <div>
+        <p class="font-display text-4xl md:text-5xl grad-text leading-none">142M+</p>
+        <p class="mt-2 text-sm text-[#F4EFE7]/70">population reach across 8 markets, including 3 Top-15 DMAs</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl md:text-5xl grad-text leading-none">26,086</p>
+        <p class="mt-2 text-sm text-[#F4EFE7]/70">weekly AQH</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl md:text-5xl grad-text leading-none">50,900</p>
+        <p class="mt-2 text-sm text-[#F4EFE7]/70">weekly cume</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-[#F4EFE7]/60">
+      New York &middot; San Francisco &middot; Orlando &middot; St. Louis &middot; Pittsburgh &middot; New Orleans &middot; Richmond &middot; Knoxville
+    </p>
+    <p class="mt-2 text-xs font-bold tracking-widest uppercase text-[#F4EFE7]/40">average market coverage: 24%</p>
+  </div>
+
+  <!-- where it airs -->
+  <div class="mt-10 md:mt-12">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">where it airs</p>
+    <h2 class="font-display text-2xl md:text-3xl mb-6">Currently on.</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+      <?php foreach (rf_markets() as $m) : ?>
+        <div class="relative rounded-xl bg-white h-20 md:h-24 flex items-center justify-center p-3 md:p-4<?php echo !empty($m['comingSoon']) ? ' opacity-55' : ''; ?>">
+          <?php if (!empty($m['logo'])) : ?>
+            <img src="<?php echo esc_url($theme_uri); ?>/assets/brand/<?php echo esc_attr($m['logo']); ?>" alt="<?php echo esc_attr($m['station'] . ' — ' . $m['city']); ?>" class="max-h-full max-w-full w-auto h-auto object-contain" />
+          <?php else : ?>
+            <p class="text-center text-[#0A0A0A] text-xs font-bold leading-tight"><?php echo esc_html($m['station']); ?></p>
+          <?php endif; ?>
+          <?php if (!empty($m['comingSoon'])) : ?>
+            <span class="absolute -top-2 -right-2 text-[9px] font-bold tracking-wide grad-bg text-[#0A0A0A] px-2 py-0.5 rounded-full shadow">soon</span>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+
+  <!-- affiliate interest form -->
+  <div class="mt-10 md:mt-12">
+    <p class="font-bold text-sm tracking-widest uppercase mb-3 grad-text">get in touch</p>
+    <h2 class="font-display text-2xl md:text-3xl mb-6">Interested in carrying rapfabulous?</h2>
+    <div class="rounded-2xl overflow-hidden">
+      <iframe class="clickup-embed clickup-dynamic-height" src="https://forms.clickup.com/10570513/f/a2jrh-5173/LQSFDXGUTR7BJFGW4L" onwheel="" width="100%" height="100%" style="background: transparent; border: none; min-height: 900px; display: block;"></iframe>
+    </div>
+  </div>
+  <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+
   <!-- resources -->
   <div class="mt-10 md:mt-12 flex flex-wrap gap-3 md:gap-4">
-    <a href="<?php echo esc_url($theme_uri); ?>/assets/docs/rapfabulous-the-brand-deck.pdf" target="_blank" rel="noopener" class="btn btn-dark">presentation deck</a>
+    <a href="<?php echo esc_url($theme_uri); ?>/assets/docs/rapfabulous-the-brand-deck.pdf" target="_blank" rel="noopener" class="btn btn-solid">presentation deck</a>
     <a href="<?php echo esc_url(home_url('/shows/')); ?>" class="btn btn-outline">previous full radio shows</a>
     <a href="<?php echo esc_url($theme_uri); ?>/assets/docs/press-release-09-2025.pdf" target="_blank" rel="noopener" class="btn btn-outline">download press release</a>
     <a href="<?php echo esc_url($theme_uri); ?>/assets/docs/mic-bios-rapfabulous.pdf" target="_blank" rel="noopener" class="btn btn-outline">download bio</a>

@@ -12,6 +12,14 @@ assets/photos/Mic Solo Approved Photo - 1000x1000.jpg
 assets/video/cassette spin.mp4
 assets/video/cassette-spin.mp4
 
+# neon sign video — brand-divider experiment was reverted back to the static wordmark,
+# so neither the root-level originals nor the theme copies are referenced anywhere
+assets/video/Rapfabulous Neon Sign.mp4
+assets/video/rapfabulous-neon-sign.mp4
+assets/photos/rapfabulous-neon-sign-poster.jpg
+wp-theme/rapfabulous/assets/video/rapfabulous-neon-sign.mp4
+wp-theme/rapfabulous/assets/photos/rapfabulous-neon-sign-poster.jpg
+
 # source clock graphics — rebuilt natively in djmix/, JPEGs kept locally only
 assets/graphics/
 

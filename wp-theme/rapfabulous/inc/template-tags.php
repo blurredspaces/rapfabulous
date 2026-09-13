@@ -8,15 +8,15 @@ defined('ABSPATH') || exit;
  */
 function rf_markets() {
     return array(
-        array('city' => 'New York, NY',      'station' => '94.7 The Block', 'day' => 'Sun', 'start' => 17, 'end' => 19, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/947theblocknyc'),
-        array('city' => 'Orlando, FL',       'station' => '102 JAM',        'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/102jamzorlando'),
-        array('city' => 'San Francisco, CA', 'station' => '102 JAMS',       'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/Los_Angeles', 'stream' => 'https://www.audacy.com/stations/102jamssf'),
-        array('city' => 'Pittsburgh, PA',    'station' => '107.3 WAMO',     'day' => 'Sat', 'start' => 19, 'end' => 21, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/wamo1073'),
-        array('city' => 'St. Louis, MO',     'station' => '96.3 R&B',       'day' => 'Sat', 'start' => 22, 'end' => 24, 'tz' => 'America/Chicago',     'stream' => 'https://www.audacy.com/stations/963rnb'),
-        array('city' => 'Knoxville, TN',     'station' => 'JUMP 97.1',      'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.jumpradio.com/knoxville/player/'),
-        array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat'),
-        array('city' => 'Greensboro, NC',    'station' => '97.1 QMG',       'comingSoon' => true),
-        array('city' => 'Lawton, OK',         'station' => 'Heart & Soul 96.7/1380', 'day' => 'Sun', 'start' => 12, 'end' => 14, 'tz' => 'America/Chicago', 'stream' => 'https://www.iheart.com/live/heart-soul-967-1380-8406/', 'comingSoon' => true, 'premiere' => 'Sept 6'),
+        array('city' => 'New York, NY',      'station' => '94.7 The Block', 'day' => 'Sun', 'start' => 17, 'end' => 19, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/947theblocknyc', 'logo' => 'affiliates/947-the-block-nyc.png'),
+        array('city' => 'Orlando, FL',       'station' => '102 JAM',        'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/102jamzorlando', 'logo' => 'affiliates/102-jamz-orlando.webp'),
+        array('city' => 'San Francisco, CA', 'station' => '102 JAMS',       'day' => 'Sun', 'start' => 20, 'end' => 22, 'tz' => 'America/Los_Angeles', 'stream' => 'https://www.audacy.com/stations/102jamssf', 'logo' => 'affiliates/102-jams-sf.png'),
+        array('city' => 'Pittsburgh, PA',    'station' => '107.3 WAMO',     'day' => 'Sat', 'start' => 19, 'end' => 21, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/wamo1073', 'logo' => 'affiliates/1073-wamo-pittsburgh.webp'),
+        array('city' => 'St. Louis, MO',     'station' => '96.3 R&B',       'day' => 'Sat', 'start' => 22, 'end' => 24, 'tz' => 'America/Chicago',     'stream' => 'https://www.audacy.com/stations/963rnb', 'logo' => 'affiliates/963-rb-stlouis.jpg'),
+        array('city' => 'Knoxville, TN',     'station' => 'JUMP 97.1',      'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.jumpradio.com/knoxville/player/', 'logo' => 'affiliates/jump971-knoxville.jpg'),
+        array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat', 'logo' => 'affiliates/1065-the-beat-richmond.png'),
+        array('city' => 'Lawton, OK',         'station' => 'Heart & Soul 96.7/1380', 'day' => 'Sun', 'start' => 12, 'end' => 14, 'tz' => 'America/Chicago', 'stream' => 'https://www.iheart.com/live/heart-soul-967-1380-8406/'), // no logo file supplied yet — flagged, renders as text placeholder
+        array('city' => 'Greensboro, NC',    'station' => '97.1 QMG',       'comingSoon' => true, 'premiere' => 'Fri, Sept 18', 'logo' => 'affiliates/971-qmg-greensboro.png'),
     );
 }
 

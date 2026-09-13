@@ -71,7 +71,7 @@ $theme_uri = get_template_directory_uri();
   </div>
 
   <div class="mt-6 flex flex-wrap gap-3 md:gap-4">
-    <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener" class="btn btn-dark">watch on youtube</a>
+    <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener" class="btn btn-solid">watch on youtube</a>
     <a href="https://www.youtube.com/@rapfabulous/playlists" target="_blank" rel="noopener" class="btn btn-outline">see all episodes</a>
   </div>
 
