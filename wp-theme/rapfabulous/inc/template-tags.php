@@ -15,7 +15,8 @@ function rf_markets() {
         array('city' => 'St. Louis, MO',     'station' => '96.3 R&B',       'day' => 'Sat', 'start' => 22, 'end' => 24, 'tz' => 'America/Chicago',     'stream' => 'https://www.audacy.com/stations/963rnb', 'logo' => 'affiliates/963-rb-stlouis.jpg'),
         array('city' => 'Knoxville, TN',     'station' => 'JUMP 97.1',      'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.jumpradio.com/knoxville/player/', 'logo' => 'affiliates/jump971-knoxville.jpg'),
         array('city' => 'Richmond, VA',      'station' => '106.5 The Beat', 'day' => 'Sun', 'start' => 10, 'end' => 12, 'tz' => 'America/New_York',    'stream' => 'https://www.audacy.com/stations/1065thebeat', 'logo' => 'affiliates/1065-the-beat-richmond.png'),
-        array('city' => 'Lawton, OK',         'station' => 'Heart & Soul 96.7/1380', 'day' => 'Sun', 'start' => 12, 'end' => 14, 'tz' => 'America/Chicago', 'stream' => 'https://www.iheart.com/live/heart-soul-967-1380-8406/'), // no logo file supplied yet — flagged, renders as text placeholder
+        // Lawton, OK (Heart & Soul 96.7/1380) — temporarily removed at Mic's request; re-add with its
+        // logo ('affiliates/heart-soul-967-lawton.png', already in the theme) and stream link when it's back.
         array('city' => 'Greensboro, NC',    'station' => '97.1 QMG',       'comingSoon' => true, 'premiere' => 'Fri, Sept 18', 'logo' => 'affiliates/971-qmg-greensboro.png'),
     );
 }

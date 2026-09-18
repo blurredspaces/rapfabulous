@@ -19,43 +19,36 @@ $convos_posts = $convos_query->posts;
 ?>
 
 <!-- ============ HERO ============ -->
-<section id="top" class="relative pt-16 md:pt-20">
+<section id="top" class="relative pt-16 md:pt-20 bg-[#0A0A0A]">
+  <div class="noise"></div>
+  <div class="relative max-w-[1600px] mx-auto md:px-10 py-14 md:py-20 flex flex-col items-center">
 
-  <!-- photo block -->
-  <div id="hero-photo-block" class="relative w-full h-[62vh] md:h-[78vh] min-h-[420px] overflow-hidden">
-    <video id="hero-video" muted loop playsinline preload="none" poster="<?php echo esc_url($theme_uri); ?>/assets/photos/mic-fox.jpg"
-      class="video-treat absolute inset-0 w-full h-full object-cover" style="object-position: 50% 42%;">
-      <source src="<?php echo esc_url($theme_uri); ?>/assets/video/convos-teaser.mp4" type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40"></div>
-    <div class="absolute inset-0" style="background:linear-gradient(100deg, rgba(204,51,0,.5), rgba(102,0,204,.5)); mix-blend-mode:color;"></div>
-    <div class="noise"></div>
-    <div id="hero-spotlight" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-700"></div>
-
-    <!-- watch badge -->
-    <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener"
-      class="hero-in-fade group absolute right-8 md:right-16 top-[38%] md:top-1/2 -translate-y-1/2 h-24 w-24 md:h-32 md:w-32 rounded-full grad-bg shadow-glow flex items-center justify-center" style="animation-delay:.3s">
-      <svg class="badge-spin absolute inset-0 h-full w-full" viewBox="0 0 100 100">
-        <path id="circlePath" fill="none" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
-        <text font-size="9.3" font-weight="700" letter-spacing="1.5" fill="#F4EFE7">
-          <textPath href="#circlePath">WATCH LATEST &bull; WATCH LATEST &bull; </textPath>
-        </text>
-      </svg>
-      <svg class="relative h-6 w-6 md:h-7 md:w-7 text-[#F4EFE7] translate-x-[1px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-    </a>
-
-    <!-- bottom info bar -->
-    <div class="absolute inset-x-0 bottom-0 grad-bg">
+    <!-- featured vertical video — full-bleed on mobile, framed card on desktop -->
+    <div id="hero-video-card" class="hero-in relative w-full md:max-w-[420px] aspect-[9/16] overflow-hidden bg-black md:rounded-[28px] md:shadow-glow md:border md:border-white/10">
+      <video id="hero-video" muted loop playsinline preload="none" poster="<?php echo esc_url($theme_uri); ?>/assets/photos/featured-vertical-poster.jpg"
+        class="video-treat absolute inset-0 w-full h-full object-cover">
+        <source src="<?php echo esc_url($theme_uri); ?>/assets/video/featured-vertical.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/10"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(100deg, rgba(204,51,0,.35), rgba(102,0,204,.35)); mix-blend-mode:color;"></div>
       <div class="noise"></div>
-      <div class="max-w-[1600px] mx-auto px-5 md:px-10 py-6 md:py-8 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-4 md:gap-8 text-[#F4EFE7]">
-        <div class="hero-in text-base md:text-lg font-semibold leading-snug max-w-2xl" style="animation-delay:.45s">
-          Where hip-hop celebrates the music, the culture, and you. A 2-hour weekend, nationally syndicated radio show plus the deep interview series CONVOS, featuring hip-hop architects. Available on YouTube, Spotify, or wherever you get your podcast.
-        </div>
-        <div class="hero-in text-xs text-[#F4EFE7]/55 md:text-right self-center" style="animation-delay:.6s">
-          honest, timeline-driven CONVOS: origins, process, legacy, what's next.
-        </div>
-      </div>
+
+      <!-- watch badge -->
+      <a href="https://youtu.be/gHM1dLkz_ag?si=A8ihOIbI7nlkulVj" target="_blank" rel="noopener"
+        class="hero-in-fade group absolute right-5 bottom-5 md:-right-7 md:-bottom-7 h-20 w-20 md:h-24 md:w-24 rounded-full grad-bg shadow-glow flex items-center justify-center" style="animation-delay:.3s">
+        <svg class="badge-spin absolute inset-0 h-full w-full" viewBox="0 0 100 100">
+          <path id="circlePath" fill="none" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+          <text font-size="9.3" font-weight="700" letter-spacing="1.5" fill="#F4EFE7">
+            <textPath href="#circlePath">WATCH LATEST &bull; WATCH LATEST &bull; </textPath>
+          </text>
+        </svg>
+        <svg class="relative h-5 w-5 md:h-6 md:w-6 text-[#F4EFE7] translate-x-[1px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+      </a>
     </div>
+
+    <p class="hero-in mt-10 md:mt-12 px-5 md:px-0 text-xs md:text-sm text-[#F4EFE7]/55 text-center max-w-md" style="animation-delay:.45s">
+      honest, timeline-driven CONVOS: origins, process, legacy, what's next.
+    </p>
   </div>
 </section>
 
@@ -145,7 +138,7 @@ $convos_posts = $convos_query->posts;
         <h2 class="font-display text-[12vw] md:text-[4vw] leading-[0.92]">listen live.</h2>
       </div>
       <div class="flex items-end gap-4 md:gap-5 shrink-0">
-        <p class="font-display text-6xl md:text-7xl grad-text leading-none">9</p>
+        <p class="font-display text-6xl md:text-7xl grad-text leading-none">8</p>
         <p class="max-w-[11rem] text-xs md:text-sm text-[#F4EFE7]/70 font-medium pb-1">markets nationwide, 2 hours every weekend, and counting.</p>
       </div>
     </div>
@@ -192,17 +185,7 @@ $convos_posts = $convos_query->posts;
   const rfReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (rfCanHover && !rfReduceMotion) {
-    const photoBlock = document.getElementById('hero-photo-block');
-    const spotlight = document.getElementById('hero-spotlight');
     const wordmark = document.querySelector('.hero-wordmark');
-
-    photoBlock.addEventListener('mousemove', (e) => {
-      const r = photoBlock.getBoundingClientRect();
-      spotlight.style.setProperty('--x', `${((e.clientX - r.left) / r.width) * 100}%`);
-      spotlight.style.setProperty('--y', `${((e.clientY - r.top) / r.height) * 100}%`);
-      spotlight.style.opacity = '1';
-    });
-    photoBlock.addEventListener('mouseleave', () => { spotlight.style.opacity = '0'; });
 
     const brandDivider = document.getElementById('brand-divider');
     brandDivider.addEventListener('mousemove', (e) => {

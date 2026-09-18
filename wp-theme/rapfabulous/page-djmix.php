@@ -143,7 +143,6 @@ $ep55 = rf_get_episode_by_label('EP 55');
       <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">107.3 WAMO &middot; Pittsburgh</span>
       <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">96.3 R&amp;B &middot; St. Louis</span>
       <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">JUMP 97.1 &middot; Knoxville</span>
-      <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold">Heart &amp; Soul 96.7/1380 &middot; Lawton</span>
       <span class="rounded-full border border-white/12 bg-white/[.03] px-4 py-2 text-sm font-semibold text-[#F4EFE7]/55">97.1 QMG &middot; Greensboro <span class="grad-text">&middot; soon</span></span>
     </div>
   </section>

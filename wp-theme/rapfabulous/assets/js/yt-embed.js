@@ -1,8 +1,9 @@
 /*
-  rapfabulous — inline YouTube player (lite facade)
+  rapfabulous — YouTube lightbox player (lite facade)
   --------------------------------------------------
-  Plays YouTube videos INSIDE the page from any share-link format.
-  No YouTube JS loads until the visitor clicks (fast page loads).
+  Plays YouTube videos in a lightbox overlay with a translucent backdrop,
+  from any share-link format. No YouTube JS loads until the visitor clicks
+  (fast page loads).
 
   Usage:
     <div class="yt-embed"
@@ -15,9 +16,14 @@
   - data-poster  (optional) custom thumbnail; defaults to the YouTube auto-thumbnail
 
   If the .yt-embed already contains its own markup (custom poster/overlay),
-  the script leaves it in place and just wires click-to-play.
+  the script leaves it in place and just wires click-to-open.
 */
 (function () {
+  var currentScript = document.currentScript;
+  var assetsBase = currentScript
+    ? currentScript.src.replace(/\/js\/yt-embed\.js.*$/, '')
+    : '';
+
   function youTubeId(input) {
     if (!input) return null;
     var url = String(input).trim();
@@ -78,9 +84,38 @@
     el.appendChild(btn);
   }
 
-  function play(el, id) {
-    var title = el.getAttribute('data-title') || 'YouTube video player';
-    var start = startSeconds(el.getAttribute('data-yt'));
+  var lightbox = null;
+  var lastTrigger = null;
+
+  function buildLightbox() {
+    var overlay = document.createElement('div');
+    overlay.className = 'yt-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.innerHTML =
+      '<div class="yt-lightbox-backdrop"></div>' +
+      '<button type="button" class="yt-lightbox-close" aria-label="Close video">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>' +
+      '</button>' +
+      '<div class="yt-lightbox-frame">' +
+      (assetsBase
+        ? '<img class="yt-lightbox-wordmark" src="' + assetsBase + '/brand/wordmark-gradient.png" alt="rapfabulous" />'
+        : '') +
+      '<div class="yt-lightbox-video"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    overlay.querySelector('.yt-lightbox-backdrop').addEventListener('click', close);
+    overlay.querySelector('.yt-lightbox-close').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+    });
+
+    return overlay;
+  }
+
+  function open(id, title, start) {
+    if (!lightbox) lightbox = buildLightbox();
     var src =
       'https://www.youtube-nocookie.com/embed/' +
       id +
@@ -89,16 +124,35 @@
 
     var iframe = document.createElement('iframe');
     iframe.src = src;
-    iframe.title = title;
+    iframe.title = title || 'YouTube video player';
     iframe.setAttribute(
       'allow',
       'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
     );
     iframe.setAttribute('allowfullscreen', '');
 
-    el.innerHTML = '';
-    el.appendChild(iframe);
-    el.classList.add('yt-playing');
+    var video = lightbox.querySelector('.yt-lightbox-video');
+    video.innerHTML = '';
+    video.appendChild(iframe);
+
+    document.body.classList.add('yt-lightbox-open');
+    lightbox.classList.add('is-open');
+    lightbox.querySelector('.yt-lightbox-close').focus();
+  }
+
+  function close() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    document.body.classList.remove('yt-lightbox-open');
+    lightbox.querySelector('.yt-lightbox-video').innerHTML = '';
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  function play(el, id) {
+    var title = el.getAttribute('data-title');
+    var start = startSeconds(el.getAttribute('data-yt'));
+    lastTrigger = el;
+    open(id, title, start);
   }
 
   function init(root) {

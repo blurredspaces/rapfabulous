@@ -1,4 +1,4 @@
-/* rapfabulous — inline YouTube player styles (pairs with yt-embed.js) */
+/* rapfabulous — YouTube lightbox player styles (pairs with yt-embed.js) */
 .yt-embed{
   position:relative; display:block; width:100%; aspect-ratio:16/9;
   overflow:hidden; background:#000; cursor:pointer; isolation:isolate;
@@ -25,7 +25,6 @@
 .yt-embed:hover .yt-play{ transform:translate(-50%,-50%) scale(1.08); }
 .yt-embed .yt-play svg{ height:24px; width:24px; color:#F4EFE7; transform:translateX(2px); }
 .yt-embed .yt-play:focus-visible{ outline:2px solid #F4EFE7; outline-offset:3px; }
-.yt-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 .yt-embed .yt-error{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   color:rgba(244,239,231,.5); font-size:.85rem; text-align:center; padding:1rem;
@@ -34,3 +33,55 @@
   .yt-embed .yt-play{ height:84px; width:84px; }
   .yt-embed .yt-play svg{ height:28px; width:28px; }
 }
+
+/* ==========================================================================
+   Lightbox overlay
+   ========================================================================== */
+body.yt-lightbox-open{ overflow:hidden; }
+
+.yt-lightbox{
+  position:fixed; inset:0; z-index:200;
+  display:flex; align-items:center; justify-content:center;
+  padding:5vh 5vw;
+  opacity:0; pointer-events:none;
+  transition:opacity .35s cubic-bezier(.16,1,.3,1);
+}
+.yt-lightbox.is-open{ opacity:1; pointer-events:auto; }
+
+.yt-lightbox-backdrop{
+  position:absolute; inset:0;
+  background:rgba(10,10,10,.82);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+}
+
+.yt-lightbox-frame{
+  position:relative; z-index:1; width:100%; max-width:1100px;
+  display:flex; flex-direction:column; align-items:center;
+  transform:scale(.96) translateY(10px);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+}
+.yt-lightbox.is-open .yt-lightbox-frame{ transform:scale(1) translateY(0); }
+
+.yt-lightbox-wordmark{
+  height:20px; width:auto; margin-bottom:18px; opacity:.9;
+}
+@media (min-width:768px){ .yt-lightbox-wordmark{ height:26px; margin-bottom:22px; } }
+
+.yt-lightbox-video{
+  position:relative; width:100%; aspect-ratio:16/9;
+  border-radius:14px; overflow:hidden; background:#000;
+  box-shadow:0 30px 90px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(244,239,231,.08);
+}
+.yt-lightbox-video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+.yt-lightbox-close{
+  position:fixed; z-index:2; top:20px; right:20px;
+  height:40px; width:40px; border-radius:999px; padding:0; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(244,239,231,.08); border:1px solid rgba(244,239,231,.25);
+  color:#F4EFE7;
+  transition:background-color .25s, transform .25s cubic-bezier(.16,1,.3,1);
+}
+.yt-lightbox-close:hover{ background:rgba(244,239,231,.16); transform:scale(1.06); }
+.yt-lightbox-close:focus-visible{ outline:2px solid #F4EFE7; outline-offset:3px; }
+.yt-lightbox-close svg{ height:18px; width:18px; }
